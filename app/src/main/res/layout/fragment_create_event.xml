@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".fragments.CreateEvent">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <Switch
+                android:id="@+id/urgentSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:text="Urgent"/>
+
+        <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/urgentSwitch"
+                android:text="Urgent events will disapear after 2 hours"/>
+        <TextView
+                android:id="@+id/selectCategory"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                android:gravity="center"
+                android:layout_below="@id/textView"
+                android:layout_margin="@dimen/dp_10"
+                android:background="@drawable/textview_corners"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:hint="Select your Sports"/>
+
+        <TextView
+                android:id="@+id/selectTeam"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                android:gravity="center"
+                android:layout_margin="@dimen/dp_10"
+                android:layout_below="@id/selectCategory"
+                android:background="@drawable/textview_corners"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:hint="Select your team"/>
+
+        <devs.mulham.horizontalcalendar.HorizontalCalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/selectTeam"
+                android:background="@android:color/holo_blue_light"
+                app:textColorSelected="#FFFF"/>
+
+        <TextView
+                android:id="@+id/chooseTime"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                android:layout_margin="@dimen/dp_10"
+                android:backgroundTint="@android:color/holo_blue_light"
+                android:background="@drawable/textview_corners"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:layout_below="@id/calendarView"
+                android:hint="Select time"/>
+
+        <Button
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="submit"/>
+
+
+        <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+            android:id="@+id/dialog"
+            android:visibility="gone"
+            android:background="@android:color/holo_blue_light"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp_30">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewTeam"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <Button
+                android:id="@+id/doneBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="Done"/>
+    </RelativeLayout>
+
+</RelativeLayout>

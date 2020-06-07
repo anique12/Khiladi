@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/cardview_light_background"
+        android:layout_marginBottom="@dimen/dp_30"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_imageView"
+                android:padding="@dimen/dp_5"
+                android:layout_weight="0.2"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="@dimen/dp_50"/>
+
+        <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:fontFamily="@font/lato_bold"
+                android:textColor="@color/black"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_gravity="center_vertical"/>
+
+        <ImageView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:src="@drawable/more_vertical"
+                android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/description_feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            android:minLines="0"/>
+
+
+    <ImageView
+            android:id="@+id/imageView_feed"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            android:scaleType="fitXY"
+            android:layout_height="wrap_content"/>
+
+
+    <LinearLayout
+            android:weightSum="1"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:padding="@dimen/dp_10"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/love"/>
+        <View
+                android:layout_width="0.1dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:background="@color/black"
+                />
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:padding="@dimen/dp_10"
+                android:src="@drawable/comment2"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:text="254 likes"
+                android:layout_weight="0.5"
+                android:padding="@dimen/dp_5"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:fontFamily="@font/lato_bold"
+                android:textColor="@color/black"/>
+
+        <TextView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:text="Tuesday,12:30pm"
+                android:layout_weight="0.5"
+                android:gravity="end"
+                android:layout_marginRight="@dimen/dp_5"
+                android:fontFamily="@font/lato_italic"/>
+    </LinearLayout>
+
+
+
+
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:weightSum="1">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/currenUserProfileImage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dp_2"
+                android:layout_weight="0.1"/>
+
+        <EditText
+                android:id="@+id/comment_box"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Add a comment..."
+                android:layout_weight="0.8"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:textSize="@dimen/sp_14"
+                android:padding="@dimen/dp_10"
+                android:background="@drawable/comment_textview"
+                android:layout_marginRight="@dimen/dp_5"/>
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:background="@drawable/comment_textview"
+                android:src="@drawable/send"
+               android:padding="@dimen/dp_10"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/dp_5"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

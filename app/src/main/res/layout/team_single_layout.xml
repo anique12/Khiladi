@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+<LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+    android:weightSum="2"
+    android:background="@android:color/white"
+    android:layout_margin="1dp"
+    android:layout_height="wrap_content">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView_team"
+        android:layout_width="0dp"
+        android:src="@drawable/account"
+        android:padding="@dimen/dp_10"
+        android:layout_height="70dp"
+        android:layout_weight="0.4"/>
+
+
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_0"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+            <TextView
+                    android:id="@+id/name_team"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:text="Aliza Smith" />
+
+            <View
+                    android:layout_width="0.1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_2"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/dp_2"
+                    android:background="@color/textColor"
+                    android:fontFamily="@font/lato_light" />
+
+            <TextView
+                    android:id="@+id/category_team"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/green"
+                    android:fontFamily="@font/lato_italic"
+                    android:text="Cricket" />
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/status_team"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@android:color/holo_purple"
+                android:fontFamily="@font/lato_italic"
+                android:maxLines="1"
+                android:text="Open" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/time_chat"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:text="Request join"
+            android:layout_marginRight="@dimen/dp_5"
+            android:background="@drawable/textview_corners"
+        android:padding="@dimen/dp_10"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:textAlignment="center"
+        android:gravity="end"
+        android:fontFamily="@font/lato_light"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0.6">
+
+    </TextView>
+
+</LinearLayout>
+</layout>

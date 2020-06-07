@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1088646134804",
+    "firebase_url": "https://khiladi-9de03.firebaseio.com",
+    "project_id": "khiladi-9de03",
+    "storage_bucket": "khiladi-9de03.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088646134804:android:9030b4df699fe93e",
+        "android_client_info": {
+          "package_name": "com.example.khiladi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088646134804-7rpl04s01ien9r8tus98il5kouthj6hi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.khiladi",
+            "certificate_hash": "e5362d732261b63a5802597f0e0d5d184c3d5bb4"
+          }
+        },
+        {
+          "client_id": "1088646134804-tjo4qoin97cvio27u36k5b2ubrcvsca8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY70ZdEgoEayxVUSNyajmTZp1Yj27dMLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088646134804-tjo4qoin97cvio27u36k5b2ubrcvsca8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+<RelativeLayout
+        android:id="@+id/whole"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Resgiter.ProfilePhoto">
+
+    <RelativeLayout
+        android:id="@+id/inner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Create Profile"
+                    android:textColor="@color/textColor"
+                    android:textSize="20sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <View
+                android:id="@+id/view_separater"
+                android:layout_width="match_parent"
+                android:layout_height="0.01dp"
+                android:layout_below="@id/toolBar"
+                android:background="@drawable/separater"
+                app:layout_constraintBottom_toBottomOf="@+id/toolBar" />
+
+        <LinearLayout
+                android:id="@+id/navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolBar"
+                android:layout_marginTop="@dimen/dp_20"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+            <TextView
+                    android:backgroundTint="@android:color/darker_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/horizontal_line"/>
+            <TextView
+                    android:backgroundTint="@android:color/darker_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/horizontal_line"/>
+            <TextView
+                    android:backgroundTint="@android:color/darker_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/horizontal_line"/>
+
+            <TextView
+                    android:backgroundTint="@android:color/holo_purple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/horizontal_line"/>
+        </LinearLayout>
+        <TextView
+                android:id="@+id/selectPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select your Profile photo"
+                android:layout_below="@id/navigation"
+                android:textSize="18dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp_25"
+                android:fontFamily="@font/lato_bold"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePhoto"
+                android:layout_width="@dimen/dp_150"
+                android:layout_height="@dimen/dp_150"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/selectPhoto"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@drawable/account"
+                android:backgroundTint="@android:color/holo_blue_light"
+                app:civ_border_color="@color/black"
+                app:civ_border_width="@dimen/dp_1" />
+
+
+        <RelativeLayout
+                android:id="@+id/btnLayout"
+                android:layout_marginTop="@dimen/dp_25"
+                android:layout_below="@id/profilePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <Button
+                    android:id="@+id/previousButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Previous"
+                    android:layout_marginLeft="@dimen/dp_25"
+                    android:background="@android:color/holo_blue_light"
+                    android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select"
+                    android:layout_centerInParent="true"
+                    android:background="@android:color/holo_green_light"
+                    android:textColor="@android:color/white"/>
+            <Button
+                    android:id="@+id/skipButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Skip"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="@dimen/dp_25"
+                    android:background="@android:color/holo_purple"
+                    android:textColor="@android:color/white" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/inner">
+
+        <ProgressBar
+                android:id="@+id/progress_bar"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <Button
+            android:id="@+id/doneButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/bottom"
+            android:background="@android:color/holo_purple"
+            android:text="Done"
+            android:textColor="@android:color/white" />
+</RelativeLayout>
+</layout>

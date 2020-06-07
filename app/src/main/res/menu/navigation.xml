@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/chat" android:title="" android:icon="@drawable/chat2"/>
+    <item android:id="@+id/feed" android:title="" android:icon="@drawable/activity_feed"/>
+    <item android:id="@+id/home" android:title="" android:icon="@drawable/home"/>
+    <item android:id="@+id/ads" android:title="" android:icon="@drawable/ads"/>
+    <item android:id="@+id/more" android:title="" android:icon="@drawable/menu"/>
+
+</menu>

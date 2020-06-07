@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".fragments.Home">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolBar_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+
+                    <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Khiladi"
+                            android:textColor="@color/colorPrimary"
+                            android:layout_weight="0.7"
+                            android:fontFamily="@font/lato_black_italic"
+                            android:textSize="24sp"/>
+
+
+
+                    <ImageView
+                            android:id="@+id/search_home"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_search_black_24dp"
+                            android:layout_weight="0.1"
+                            android:layout_marginRight="@dimen/dp_10"/>
+
+                    <ImageView
+                            android:id="@+id/notification_home"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/notification"
+                            android:layout_weight="0.1"
+                            android:layout_marginRight="@dimen/dp_10"
+                            android:layout_gravity="center_vertical"/>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/sportsCategory"
+                            android:layout_width="0dp"
+                            android:layout_weight="0.1"
+                            android:layout_marginRight="5dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/cricket" />
+
+                </LinearLayout>
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <View
+                    android:id="@+id/view_separater"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.01dp"
+                    android:layout_below="@id/toolBar_home"
+                    android:background="@drawable/separater" />
+
+
+            <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                android:layout_below="@id/toolBar_home">
+
+                <RelativeLayout
+                        android:id="@+id/layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    <LinearLayout
+                            android:id="@+id/llayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                        <ImageView
+                                android:id="@+id/newEvent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/add_new"
+                                android:layout_margin="@dimen/dp_5"
+                                android:background="@drawable/textview_corners"
+                                android:padding="@dimen/dp_5" />
+
+                        <TextView
+                                android:id="@+id/AllEvents"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_toRightOf="@id/newEvent"
+                                android:background="@drawable/chips"
+                                android:paddingLeft="@dimen/dp_10"
+                                android:paddingTop="@dimen/dp_5"
+                                android:paddingRight="@dimen/dp_10"
+                                android:paddingBottom="@dimen/dp_5"
+                                android:text="All"
+                                android:textColor="@android:color/white"
+                                android:textSize="10sp" />
+
+                        <TextView
+                                android:id="@+id/urgentEvents"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                android:text="Urgent"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/dp_10"
+                                android:layout_toRightOf="@id/AllEvents"
+                                android:textColor="@android:color/white"
+                                android:background="@drawable/respond_unfocus"
+                                android:paddingTop="@dimen/dp_5"
+                                android:paddingBottom="@dimen/dp_5"
+                                android:paddingLeft="@dimen/dp_10"
+                                android:paddingRight="@dimen/dp_10" />
+
+                        <TextView
+                                android:id="@+id/fixtures"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fixtures"
+                                android:textSize="10sp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/dp_10"
+                                android:textColor="@android:color/white"
+                                android:layout_toRightOf="@id/urgentEvents"
+                                android:background="@drawable/respond_unfocus"
+                                android:paddingTop="@dimen/dp_5"
+                                android:paddingBottom="@dimen/dp_5"
+                                android:paddingLeft="@dimen/dp_10"
+                                android:paddingRight="@dimen/dp_10" />
+
+                        <TextView
+                                android:id="@+id/myEvents"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="My Events"
+                                android:layout_gravity="center_vertical"
+                                android:textSize="10sp"
+                                android:textColor="@android:color/white"
+                                android:layout_marginLeft="@dimen/dp_10"
+                                android:layout_toRightOf="@id/fixtures"
+                                android:background="@drawable/respond_unfocus"
+                                android:paddingTop="@dimen/dp_5"
+                                android:paddingBottom="@dimen/dp_5"
+                                android:paddingLeft="@dimen/dp_10"
+                                android:paddingRight="@dimen/dp_10" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginTop="@dimen/dp_5"
+                            android:id="@+id/recyclerViewHome"
+                            android:layout_width="match_parent"
+                            android:background="@color/blue_background"
+                            android:layout_height="match_parent"
+                        android:layout_below="@id/llayout"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+                </RelativeLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+
+        </RelativeLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

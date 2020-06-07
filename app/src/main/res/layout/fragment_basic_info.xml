@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layout"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:text="Create Profile"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <View
+            android:id="@+id/view_separater"
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            android:layout_below="@id/toolBar"
+            android:background="@drawable/separater"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar" />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolBar"
+            android:layout_marginTop="@dimen/dp_20"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+        <TextView
+                android:backgroundTint="@android:color/holo_purple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/horizontal_line"/>
+        <TextView
+                android:backgroundTint="@android:color/darker_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/horizontal_line"/>
+        <TextView
+                android:backgroundTint="@android:color/darker_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/horizontal_line"/>
+
+        <TextView
+                android:backgroundTint="@android:color/darker_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/horizontal_line"/>
+    </LinearLayout>
+    <RelativeLayout
+            android:id="@+id/layoutR"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+                android:layout_marginTop="150dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/usernameLayout"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                        android:id="@+id/username"
+                        android:padding="10dp"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/username" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_below="@id/usernameLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_25"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:layout_height="wrap_content" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phoneLayout"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/ccp"
+                    android:layout_below="@id/usernameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+            <EditText
+                    android:id="@+id/phone"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:inputType="number"
+                    android:layout_marginRight="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/cityLayout"
+                    android:layout_below="@id/phoneLayout"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                        android:id="@+id/city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:hint="@string/city" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Spinner
+                    android:id="@+id/gender_spinner"
+                    android:layout_below="@id/cityLayout"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:layout_width="fill_parent"
+                    android:layout_marginRight="@dimen/dp_25"
+                    android:layout_marginLeft="@dimen/dp_25"
+                    android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                    android:id="@+id/btnLayout"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:layout_below="@id/gender_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <Button
+                        android:id="@+id/nextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Next"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginRight="@dimen/dp_25"
+                        android:background="@android:color/holo_purple"
+                        android:textColor="@android:color/white" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+</layout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.DiscoverKhiladi">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBar"
+                app:navigationIcon="@drawable/arrow_back"
+                app:title="@string/discover_khiladi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_discoverKhiladi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/toolBar"
+                android:background="@color/blue_background"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/choose_category_bottom_sheet"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

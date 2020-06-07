@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.accountFragments.VerifyEmail">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarVerifyEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/email_verification"
+                android:textSize="@dimen/sp_20"
+                android:textColor="@color/black"
+                />
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+            android:id="@+id/view_separater"
+            android:layout_below="@+id/toolbarVerifyEmail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="@drawable/separater"
+            />
+
+    <TextView
+            android:id="@+id/verifyEmailVerifyEmailFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/verify_email"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/toolbarVerifyEmail"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:layout_marginTop="@dimen/dp_50"
+            />
+
+    <EditText
+            android:id="@+id/emailVerifyVerifyEmailFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/verifyEmailVerifyEmailFragment"
+            android:layout_marginTop="@dimen/dp_50"
+            android:background="@drawable/email_password_corners"
+            android:textSize="@dimen/sp_16"
+            android:hint="@string/email"
+            android:padding="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+            />
+
+    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+            android:id="@+id/verifyEmailBtnVerifyEmailFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/emailVerifyVerifyEmailFragment"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+            android:layout_marginTop="20dp"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@android:color/white"
+            android:text="@string/verify"
+            app:spinning_bar_width="4dp"
+            app:spinning_bar_color="@android:color/white"
+            android:background="@drawable/login_button_corners"
+            />
+
+    <TextView
+            android:id="@+id/messageVerifyEmailFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/verifyEmailBtnVerifyEmailFragment"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_50"
+            android:text="An email has been sent to you. Please check your email and then continue"
+            android:drawableLeft="@drawable/check_circle"
+            android:textSize="@dimen/sp_15"
+            android:drawableTint="@android:color/holo_green_dark"
+            android:drawablePadding="@dimen/dp_5"
+            android:visibility="invisible"
+            android:padding="@dimen/dp_15"
+            />
+
+    <Button
+            android:id="@+id/nextBtnVerifyEmailFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/messageVerifyEmailFragment"
+            android:layout_alignEnd="@id/messageVerifyEmailFragment"
+            android:text="@string/next"
+            android:background="@android:color/holo_green_light"
+            android:layout_marginRight="@dimen/dp_15"
+            android:drawableRight="@drawable/right_arrow"
+            android:layout_marginTop="@dimen/dp_5"
+            android:textColor="@android:color/white"
+            android:drawableTint="@android:color/white"
+            android:visibility="invisible"
+            android:layout_alignRight="@id/messageVerifyEmailFragment"/>
+
+</RelativeLayout>
+</layout>

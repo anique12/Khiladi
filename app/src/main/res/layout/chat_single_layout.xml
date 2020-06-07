@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="horizontal" android:layout_width="match_parent"
+            android:weightSum="2"
+            android:background="@android:color/white"
+            android:layout_marginBottom="@dimen/dp_2"
+            android:layout_height="wrap_content">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageView_chat"
+                android:layout_width="0dp"
+                android:src="@drawable/account"
+                android:padding="@dimen/dp_10"
+                android:layout_height="70dp"
+                android:layout_weight="0.4"/>
+
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_weight="1.1"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+
+            <TextView
+                    android:id="@+id/name_chat"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_weight="1"
+                    android:text="Aliza Smith"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+
+            <TextView
+                    android:id="@+id/latest_message_chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:text="Yes, How may i help you?" />
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/time_chat"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:text="12:31pm"
+                android:padding="@dimen/dp_10"
+                android:gravity="end"
+                android:fontFamily="@font/lato_light"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.5">
+
+        </TextView>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/navigation"
+        app:startDestination="@id/splash">
+    <fragment
+            android:id="@+id/home"
+            android:name="com.example.khiladi.fragments.Home"
+            android:label="fragment_home"
+            tools:layout="@layout/fragment_home" >
+        <action
+                android:id="@+id/action_home_to_notification"
+                app:destination="@id/notification"
+                app:enterAnim="@anim/enter_from_right"
+                app:exitAnim="@anim/exit_to_left"
+                app:popEnterAnim="@anim/enter_from_left"
+                app:popExitAnim="@anim/exit_to_right"
+                />
+        <action
+                android:id="@+id/action_home_to_createEvent"
+                app:destination="@id/createEvent" />
+        <action
+                android:id="@+id/action_home_to_sportsAndTeam"
+                app:destination="@id/sportsAndTeam" />
+    </fragment>
+    <fragment
+            android:id="@+id/feed"
+            android:name="com.example.khiladi.fragments.Feeds"
+            android:label="fragment_feeds"
+            tools:layout="@layout/fragment_feeds" />
+    <fragment
+            android:id="@+id/chat"
+            android:name="com.example.khiladi.fragments.Chat"
+            android:label="fragment_chat"
+            tools:layout="@layout/fragment_chat" />
+    <fragment
+            android:id="@+id/ads"
+            android:name="com.example.khiladi.fragments.Ads"
+            android:label="fragment_ads"
+            tools:layout="@layout/fragment_ads" >
+        <action
+                android:id="@+id/action_ads_to_adPost"
+                app:destination="@id/adPost" />
+        <action
+                android:id="@+id/action_ads_to_myAds"
+                app:destination="@id/myAds" />
+        <action
+                android:id="@+id/action_ads_to_placeLocation"
+                app:destination="@id/placeLocation" />
+        <action
+                android:id="@+id/action_ads_to_places"
+                app:destination="@id/places" />
+    </fragment>
+    <fragment
+            android:id="@+id/profile"
+            android:name="com.example.khiladi.fragments.Profile"
+            android:label="Profile" />
+    <fragment
+            android:id="@+id/notification"
+            android:name="com.example.khiladi.fragments.Notification"
+            android:label="Notification" >
+        <action
+                android:id="@+id/action_notification_to_teamProfile"
+                app:destination="@id/teamProfile" />
+        <action
+                android:id="@+id/action_notification_to_khiladiProfile"
+                app:destination="@id/khiladiProfile" />
+    </fragment>
+    <fragment
+            android:id="@+id/more"
+            android:name="com.example.khiladi.fragments.More"
+            android:label="fragment_more"
+            tools:layout="@layout/fragment_more" >
+        <action
+                android:id="@+id/action_more_to_discoverKhiladi"
+                app:destination="@id/discoverKhiladi" />
+        <action
+                android:id="@+id/action_more_to_teams"
+                app:destination="@id/teams" />
+        <action
+                android:id="@+id/action_more_to_login"
+                app:destination="@id/login"
+                app:popUpTo="@+id/home"
+                app:popUpToInclusive="true" />
+        <action
+                android:id="@+id/action_more_to_basicInfo"
+                app:destination="@id/basicInfo" />
+    </fragment>
+    <fragment
+            android:id="@+id/discoverKhiladi"
+            android:name="com.example.khiladi.fragments.DiscoverKhiladi"
+            android:label="DiscoverKhiladi" >
+        <action
+                android:id="@+id/action_discoverKhiladi_to_khiladiProfile"
+                app:destination="@id/khiladiProfile" />
+    </fragment>
+    <fragment
+            android:id="@+id/teams"
+            android:name="com.example.khiladi.fragments.Teams"
+            android:label="Teams" >
+        <action
+                android:id="@+id/action_teams_to_createTeam"
+                app:destination="@id/createTeam" />
+        <action
+                android:id="@+id/action_teams_to_teamProfile"
+                app:destination="@id/teamProfile" />
+    </fragment>
+    <fragment
+            android:id="@+id/adPost"
+            android:name="com.example.khiladi.fragments.AdPost"
+            android:label="AdPost" >
+        <action
+                android:id="@+id/action_adPost_to_ads"
+                app:destination="@id/ads"
+                app:popUpTo="@+id/ads"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/myAds"
+            android:name="com.example.khiladi.fragments.MyAds"
+            android:label="MyAds" >
+        <action
+                android:id="@+id/action_myAds_to_placeDescription"
+                app:destination="@id/placeDescription" />
+    </fragment>
+    <fragment
+            android:id="@+id/splash"
+            android:name="com.example.khiladi.fragments.accountFragments.Splash"
+            android:label="Splash" >
+        <action
+                android:id="@+id/action_splash_to_login"
+                app:destination="@id/login"
+                app:popUpTo="@+id/splash"
+                app:popUpToInclusive="true" />
+        <action
+                android:id="@+id/action_splash_to_home"
+                app:destination="@id/home"
+                app:popUpTo="@+id/splash"
+                app:popUpToInclusive="true" />
+        <action
+                android:id="@+id/action_splash_to_verifyEmail"
+                app:destination="@id/verifyEmail" />
+    </fragment>
+    <fragment
+            android:id="@+id/login"
+            android:name="com.example.khiladi.fragments.accountFragments.Login"
+            android:label="Login" >
+        <action
+                android:id="@+id/action_login_to_register"
+                app:destination="@id/register"
+                app:popUpToInclusive="false" />
+        <action
+                android:id="@+id/action_login_to_verifyEmail"
+                app:destination="@id/verifyEmail" />
+        <action
+                android:id="@+id/action_login_to_resetPassword"
+                app:destination="@id/resetPassword" />
+        <action
+                android:id="@+id/action_login_to_home"
+                app:destination="@+id/home"
+                app:popUpTo="@+id/login"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/register"
+            android:name="com.example.khiladi.fragments.accountFragments.Register"
+            android:label="Register" >
+        <action
+                android:id="@+id/action_register_to_login"
+                app:destination="@id/login"
+                app:popUpTo="@+id/login"
+                app:popUpToInclusive="true" />
+        <action
+                android:id="@+id/action_register_to_verifyEmail"
+                app:destination="@id/verifyEmail" />
+    </fragment>
+    <fragment
+            android:id="@+id/verifyEmail"
+            android:name="com.example.khiladi.fragments.accountFragments.VerifyEmail"
+            android:label="VerifyEmail" >
+        <action
+                android:id="@+id/action_verifyEmail_to_login"
+                app:destination="@id/login"
+                app:popUpTo="@+id/login"
+                app:popUpToInclusive="true" />
+        <action
+                android:id="@+id/action_verifyEmail_to_basicInfo2"
+                app:destination="@id/basicInfo" />
+    </fragment>
+    <fragment
+            android:id="@+id/resetPassword"
+            android:name="com.example.khiladi.fragments.accountFragments.ResetPassword"
+            android:label="ResetPassword" />
+    <fragment
+            android:id="@+id/detailedAccountInfo"
+            android:name="com.example.khiladi.fragments.accountFragments.DetailedAccountInfo"
+            android:label="DetailedAccountInfo" />
+    <fragment
+            android:id="@+id/createTeam"
+            android:name="com.example.khiladi.fragments.CreateTeam"
+            android:label="CreateTeam" >
+        <action
+                android:id="@+id/action_createTeam_to_teams"
+                app:destination="@id/teams"
+                app:popUpTo="@+id/teams"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/teamProfile"
+            android:name="com.example.khiladi.fragments.TeamProfile"
+            android:label="fragment_team_profile"
+            tools:layout="@layout/fragment_team_profile" >
+        <action
+                android:id="@+id/action_teamProfile_to_khiladiProfile"
+                app:destination="@id/khiladiProfile" />
+    </fragment>
+    <fragment
+            android:id="@+id/khiladiProfile"
+            android:name="com.example.khiladi.fragments.KhiladiProfile"
+            android:label="KhiladiProfile" />
+    <fragment
+            android:id="@+id/createEvent"
+            android:name="com.example.khiladi.fragments.CreateEvent"
+            android:label="fragment_create_event"
+            tools:layout="@layout/fragment_create_event" >
+        <action
+                android:id="@+id/action_createEvent_to_home"
+                app:destination="@id/home"
+                app:popUpTo="@+id/home"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/basicInfo"
+            android:name="com.example.khiladi.Resgiter.BasicInfo"
+            android:label="BasicInfo" >
+        <action
+                android:id="@+id/action_basicInfo_to_playingSports"
+                app:destination="@id/playingSports" />
+    </fragment>
+    <fragment
+            android:id="@+id/playingSports"
+            android:name="com.example.khiladi.Resgiter.PlayingSports"
+            android:label="PlayingSports" >
+        <action
+                android:id="@+id/action_playingSports_to_intrestedSports"
+                app:destination="@id/intrestedSports" />
+        <action
+                android:id="@+id/action_playingSports_to_basicInfo"
+                app:destination="@id/basicInfo"
+                app:popUpTo="@+id/basicInfo"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/intrestedSports"
+            android:name="com.example.khiladi.Resgiter.IntrestedSports"
+            android:label="IntrestedSports" >
+
+        <action
+                android:id="@+id/action_intrestedSports_to_profilePhoto"
+                app:destination="@id/profilePhoto" />
+        <action
+                android:id="@+id/action_intrestedSports_to_playingSports"
+                app:destination="@id/playingSports"
+                app:popUpTo="@+id/playingSports"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/profilePhoto"
+            android:name="com.example.khiladi.Resgiter.ProfilePhoto"
+            android:label="fragment_profile_photo"
+            tools:layout="@layout/fragment_profile_photo" >
+
+        <action
+                android:id="@+id/action_profilePhoto_to_more"
+                app:destination="@id/more"
+                app:popUpTo="@+id/more"
+                app:popUpToInclusive="true" />
+        <action
+                android:id="@+id/action_profilePhoto_to_intrestedSports"
+                app:destination="@id/intrestedSports"
+                app:popUpTo="@+id/intrestedSports"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/placeLocation"
+            android:name="com.example.khiladi.createPlaceAd.PlaceLocation"
+            android:label="PlaceLocation" >
+        <action
+                android:id="@+id/action_placeLocation_to_customGallery"
+                app:destination="@+id/customGallery" />
+    </fragment>
+    <fragment
+            android:id="@+id/places"
+            android:name="com.example.khiladi.fragments.Places"
+            android:label="Places" >
+        <action
+                android:id="@+id/action_places_to_placeLocation"
+                app:destination="@id/placeLocation" />
+        <action
+                android:id="@+id/action_places_to_placeDescription"
+                app:destination="@id/placeDescription" />
+    </fragment>
+    <fragment
+            android:id="@+id/customGallery"
+            android:name="com.example.khiladi.createPlaceAd.CustomGallery"
+            android:label="CustomGallery" >
+        <action
+                android:id="@+id/action_customGallery_to_placeLocation"
+                app:destination="@id/placeLocation" />
+        <action
+                android:id="@+id/action_customGallery_to_description2"
+                app:destination="@id/description2" />
+    </fragment>
+    <fragment
+            android:id="@+id/selectCategory2"
+            android:name="com.example.khiladi.createPlaceAd.SelectCategory"
+            android:label="SelectCategory" >
+        <action
+                android:id="@+id/action_selectCategory2_to_ads"
+                app:destination="@id/ads"
+                app:popUpTo="@+id/ads"
+                app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+            android:id="@+id/description2"
+            android:name="com.example.khiladi.createPlaceAd.Description"
+            android:label="Description" >
+        <action
+                android:id="@+id/action_description2_to_selectCategory2"
+                app:destination="@id/selectCategory2" />
+    </fragment>
+    <fragment
+            android:id="@+id/placeDescription"
+            android:name="com.example.khiladi.PlaceDescription"
+            android:label="PlaceDescription" >
+        <action
+                android:id="@+id/action_placeDescription_to_khiladiProfile"
+                app:destination="@id/khiladiProfile" />
+        <action
+                android:id="@+id/action_placeDescription_to_customizeMyPlaces"
+                app:destination="@id/customizeMyPlaces" />
+    </fragment>
+    <fragment
+            android:id="@+id/customizeMyPlaces"
+            android:name="com.example.khiladi.fragments.CustomizeMyPlaces"
+            android:label="CustomizeMyPlaces" />
+    <fragment
+            android:id="@+id/sportsAndTeam"
+            android:name="com.example.khiladi.createEvent.Sports"
+            android:label="SportsAndTeam" >
+        <action
+                android:id="@+id/action_sportsAndTeam_to_team"
+                app:destination="@id/team"
+                app:enterAnim="@anim/enter_from_right"
+                app:exitAnim="@anim/exit_to_left"
+                app:popEnterAnim="@anim/enter_from_left"
+                app:popExitAnim="@anim/exit_to_right" />
+    </fragment>
+    <fragment
+            android:id="@+id/team"
+            android:name="com.example.khiladi.createEvent.Team"
+            android:label="Team" >
+        <action
+                android:id="@+id/action_team_to_nearbyPlaces"
+                app:destination="@id/nearbyPlaces"
+                app:enterAnim="@anim/enter_from_right"
+                app:exitAnim="@anim/exit_to_left"
+                app:popEnterAnim="@anim/enter_from_left"
+                app:popExitAnim="@anim/exit_to_right" />
+    </fragment>
+    <fragment
+            android:id="@+id/nearbyPlaces"
+            android:name="com.example.khiladi.createEvent.NearbyPlaces"
+            android:label="NearbyPlaces" >
+        <action
+                android:id="@+id/action_nearbyPlaces_to_schedule"
+                app:destination="@id/schedule"
+                app:enterAnim="@anim/enter_from_right"
+                app:exitAnim="@anim/exit_to_left"
+                app:popEnterAnim="@anim/enter_from_left"
+                app:popExitAnim="@anim/exit_to_right" />
+        <action
+                android:id="@+id/action_nearbyPlaces_to_placeDescription"
+                app:destination="@id/placeDescription" />
+    </fragment>
+    <fragment
+            android:id="@+id/schedule"
+            android:name="com.example.khiladi.createEvent.Schedule"
+            android:label="Schedule" />
+
+</navigation>

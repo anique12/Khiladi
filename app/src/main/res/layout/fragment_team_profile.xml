@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.TeamProfile">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/request"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_10"
+                android:textColor="@android:color/white"
+                android:background="@drawable/respond"
+                android:text="Accept"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_10"
+                android:textColor="@android:color/white"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/respond"
+                android:text="Decline" />
+    </RelativeLayout>
+    <ImageView
+            android:layout_below="@id/request"
+            android:id="@+id/imageViewTeamProfile"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/no_image_gradient" />
+
+    <TextView
+            android:id="@+id/nameTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            android:textSize="@dimen/sp_16"
+            android:fontFamily="@font/lato_regular"
+            android:textColor="@android:color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/imageViewTeamProfile"
+            />
+
+    <TextView
+            android:id="@+id/descriptionTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="TextView"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/nameTeam"
+            />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPlayersTeamProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_below="@id/descriptionTeam"/>
+            />
+</RelativeLayout>
+</layout>

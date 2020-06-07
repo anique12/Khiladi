@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".createPlaceAd.SelectCategory">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:text="Create Ad"
+                android:textColor="@color/textColor"
+                android:textSize="20sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <View
+            android:id="@+id/view_separater"
+            android:layout_width="match_parent"
+            android:layout_height="0.01dp"
+            android:layout_below="@id/toolBar"
+            android:background="@drawable/separater"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar" />
+
+    <LinearLayout
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_separater"
+            android:layout_marginTop="@dimen/dp_20"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+        <TextView
+                android:backgroundTint="@android:color/darker_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/horizontal_line"/>
+        <TextView
+                android:backgroundTint="@android:color/darker_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/horizontal_line"/>
+        <TextView
+                android:backgroundTint="@android:color/darker_gray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/horizontal_line"/>
+
+        <TextView
+                android:backgroundTint="@android:color/holo_purple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/horizontal_line"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/descL"
+            android:layout_below="@id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select sports category for your ad"
+                android:textColor="@android:color/holo_purple"
+                android:padding="@dimen/dp_5"/>
+    </LinearLayout>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/descL">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/dp_10"
+                android:id="@+id/recyclerViewCategories"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+        <RelativeLayout
+                android:id="@+id/btnLayout"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <Button
+                    android:id="@+id/previousButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_25"
+                    android:layout_marginBottom="@dimen/dp_25"
+                    android:background="@android:color/holo_blue_light"
+                    android:text="Previous"
+                    android:textColor="@android:color/white" />
+
+            <Button
+                    android:id="@+id/nextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_25"
+                    android:background="@android:color/holo_purple"
+                    android:text="Next"
+                    android:textColor="@android:color/white" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+</layout>

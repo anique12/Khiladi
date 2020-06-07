@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:minHeight="400dp"
+        android:minWidth="300dp"
+        android:layout_height="match_parent">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/choose_team_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+
+  <Button
+          android:id="@+id/done_btn_choose_team"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="DONE"
+          android:layout_alignBottom="@id/choose_team_recyclerView"
+          android:background="@android:color/white"/>
+
+
+</RelativeLayout>
+</layout>

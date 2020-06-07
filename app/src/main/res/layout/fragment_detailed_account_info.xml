@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+    <ImageView
+            android:id="@+id/imageBtnDetailAccountFragment"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_120"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_50"
+            android:background="@drawable/account"
+            />
+
+    <!--<de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle_image_view_edit_account"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_120"
+            android:layout_marginTop="@dimen/dp_50"
+            android:layout_centerHorizontal="true"
+            app:civ_border_width="@dimen/dp_2"
+            app:civ_circle_background_color="@color/black"
+    />-->
+
+    <EditText
+            android:id="@+id/usernameDetailAccountFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageBtnDetailAccountFragment"
+            android:layout_marginTop="@dimen/dp_30"
+            android:background="@drawable/email_password_corners"
+            android:textSize="@dimen/sp_16"
+            android:hint="@string/username"
+            android:padding="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+            />
+
+    <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+            android:id="@+id/countryCodePickerDetailAccountFragment"
+            android:layout_below="@id/usernameDetailAccountFragment"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_height="wrap_content" />
+    <EditText
+            android:id="@+id/phoneDetailAccountFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/usernameDetailAccountFragment"
+            android:layout_toRightOf="@id/countryCodePickerDetailAccountFragment"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/email_password_corners"
+            android:textSize="@dimen/sp_16"
+            android:inputType="phone"
+            android:hint="@string/phone"
+            android:padding="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_25"
+            />
+
+    <EditText
+            android:id="@+id/cityDetailAccountFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phoneDetailAccountFragment"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/email_password_corners"
+            android:textSize="@dimen/sp_16"
+            android:hint="@string/city"
+            android:padding="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+            />
+
+    <TextView
+            android:id="@+id/genderTextViewDetailAccountFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/selectSportsDetailAccountFragment"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_25"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:text="@string/gender"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/black"
+            />
+
+    <RadioGroup
+            android:id="@+id/radioDetailAccountFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/selectSportsDetailAccountFragment"
+            android:layout_toRightOf="@id/genderTextViewDetailAccountFragment"
+            android:orientation="horizontal"
+            >
+        <RadioButton
+                android:text="@string/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButtonMaleDetailAccountFragment"
+                android:layout_below="@id/selectSportsDetailAccountFragment"
+                android:layout_toRightOf="@id/radioDetailAccountFragment"
+                android:layout_marginTop="@dimen/dp_15"
+                />
+
+        <RadioButton
+                android:text="@string/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButtonFemaleDetailAccountFragment"
+                android:layout_below="@id/selectSportsDetailAccountFragment"
+                android:layout_toRightOf="@id/radioDetailAccountFragment"
+                android:layout_marginTop="@dimen/dp_15"
+                android:layout_marginLeft="@dimen/dp_5"
+                />
+
+        <RadioButton
+                android:text="other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButtonOtherDetailAccountFragment"
+                android:layout_below="@id/selectSportsDetailAccountFragment"
+                android:layout_toRightOf="@id/radioDetailAccountFragment"
+                android:layout_marginTop="@dimen/dp_15"
+                android:layout_marginLeft="@dimen/dp_5"
+                />
+
+    </RadioGroup>
+
+    <Button
+            android:id="@+id/selectSportsDetailAccountFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cityDetailAccountFragment"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/email_password_corners"
+            android:textSize="@dimen/sp_12"
+            android:text="@string/select_sport"
+            android:layout_marginRight="@dimen/dp_25"
+            android:layout_marginLeft="@dimen/dp_25"
+            />
+    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+            android:id="@+id/nextBtnDetailAccountFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/genderTextViewDetailAccountFragment"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+            android:layout_marginTop="20dp"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@android:color/white"
+            android:text="@string/next"
+            app:spinning_bar_width="4dp"
+            app:spinning_bar_color="@android:color/white"
+            android:background="@drawable/login_button_corners"
+            />
+
+</RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
+
+
+</layout>

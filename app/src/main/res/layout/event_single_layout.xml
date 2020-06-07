@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_margin="3dp"
+        android:layout_height="wrap_content">
+
+   <!-- <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layout"
+                    android:weightSum="1">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView_event"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="0.2"
+                        android:src="@drawable/account"/>
+
+                <TextView
+                        android:id="@+id/name_event"
+                        android:layout_width="0dp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8"
+                        android:layout_gravity="center_vertical"
+                        android:text="Lahore Lions have created an event for cricket match"
+                        android:layout_margin="@dimen/dp_10"/>
+
+            </LinearLayout>
+
+            <TextView
+                    android:id="@+id/preffered_venue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/layout"
+                    android:text="Mughalpura,Lahore"/>
+
+            <LinearLayout
+                    android:id="@+id/date_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_below="@id/preffered_venue">
+
+                <TextView
+                        android:id="@+id/date_event"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="Date: 25 January,2020"/>
+
+                <TextView
+                        android:id="@+id/time_event"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="Time:11:00pm - 12:00pm"/>
+            </LinearLayout>
+
+            <TextView
+                    android:id="@+id/responces"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12 responces"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:textColor="@color/black"
+                    android:layout_below="@id/date_time"
+                    android:layout_marginTop="@dimen/dp_10"/>
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/responces"
+                    android:backgroundTint="@color/blue_background"
+                    android:background="@drawable/textview_corners"
+                    android:layout_margin="@dimen/dp_10"
+                    android:text="Responce"/>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>-->
+
+    <androidx.cardview.widget.CardView
+            android:layout_margin="@dimen/dp_5"
+            style="@style/CardView.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <LinearLayout
+            android:weightSum="1"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/statusEvent"
+                android:layout_weight="0.9"
+                android:paddingLeft="10dp"
+                android:textColor="@android:color/holo_green_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vacant"/>
+
+        <TextView
+                android:id="@+id/respondEvent"
+                android:layout_weight="0.1"
+                android:background="@drawable/respond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_margin="@dimen/dp_5"
+                android:padding="@dimen/dp_5"
+                android:textColor="@android:color/white"
+                android:text="Respond"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageViewTeam1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_star"/>
+            <TextView
+                    android:id="@+id/teamName1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold" />
+        </LinearLayout>
+        <TextView
+                android:id="@+id/tetvie5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:fontFamily="@font/lato_italic"
+                android:paddingRight="@dimen/dp_5"
+                android:paddingLeft="@dimen/dp_5"
+                android:paddingBottom="@dimen/dp_5"
+                android:background="@drawable/textview_corners"
+                android:text="vs"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageViewTeam2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/btn_star"/>
+            <TextView
+                    android:id="@+id/teamName2"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/dateEvent"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_italic"
+                android:text="21st jan,2020 /"/>
+        <TextView
+                android:id="@+id/placeEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_italic"
+                android:layout_marginLeft="10dp"
+                android:text="Griffen,Lahore"/>
+
+        <TextView
+                android:id="@+id/timeEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/lato_italic"
+                android:gravity="end" />
+    </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                    android:id="@+id/backgroundLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageViewCreateTeam"
+                        android:layout_width="@dimen/dp_120"
+                        android:layout_height="@dimen/dp_120"
+                        android:layout_marginTop="@dimen/dp_50"
+                        android:layout_centerHorizontal="true"
+                        app:civ_border_width="@dimen/dp_2"
+                        android:src="@drawable/image_button_shape"
+                        app:civ_circle_background_color="@color/black"
+                        />
+
+                <EditText
+                        android:id="@+id/titleCreateTeam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imageViewCreateTeam"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:background="@drawable/email_password_corners"
+                        android:textSize="@dimen/sp_16"
+                        android:hint="Title"
+                        android:padding="@dimen/dp_10"
+                        android:layout_marginLeft="@dimen/dp_25"
+                        android:layout_marginRight="@dimen/dp_25"
+                        />
+
+                <EditText
+                        android:id="@+id/descriptionCreateTeam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleCreateTeam"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:background="@drawable/email_password_corners"
+                        android:textSize="@dimen/sp_16"
+                        android:hint="Description"
+                        android:padding="@dimen/dp_10"
+                        android:layout_marginLeft="@dimen/dp_25"
+                        android:layout_marginRight="@dimen/dp_25"
+                        />
+
+
+                <Button
+                        android:id="@+id/playersCreateTeam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/descriptionCreateTeam"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:background="@drawable/email_password_corners"
+                        android:textSize="@dimen/sp_12"
+                        android:padding="@dimen/dp_10"
+                        android:text="Pick your players"
+                        android:layout_marginLeft="@dimen/dp_25"
+                        android:layout_marginRight="@dimen/dp_25"
+                        />
+
+
+
+                <Button
+                        android:id="@+id/selectSportsCreateTeam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/playersCreateTeam"
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:background="@drawable/email_password_corners"
+                        android:textSize="@dimen/sp_12"
+                        android:text="@string/select_sport"
+                        android:layout_marginRight="@dimen/dp_25"
+                        android:layout_marginLeft="@dimen/dp_25"
+                        />
+                <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+                        android:id="@+id/nextBtnCreateTeam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/selectSportsCreateTeam"
+                        android:layout_marginLeft="@dimen/dp_25"
+                        android:layout_marginRight="@dimen/dp_25"
+                        android:layout_marginTop="20dp"
+                        android:textSize="@dimen/sp_16"
+                        android:textColor="@android:color/white"
+                        android:text="@string/next"
+                        app:spinning_bar_width="4dp"
+                        app:spinning_bar_color="@android:color/white"
+                        android:background="@drawable/login_button_corners"
+                        />
+            </RelativeLayout>
+
+
+
+        <RelativeLayout
+                android:id="@+id/dialogChoosePlayers"
+                android:layout_margin="@dimen/dp_20"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewChoosePlayers"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <Button
+                    android:id="@+id/doneBtndialogChoosePlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Done"
+                    android:textColor="@android:color/black"
+                android:layout_alignBottom="@id/recyclerViewChoosePlayers"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

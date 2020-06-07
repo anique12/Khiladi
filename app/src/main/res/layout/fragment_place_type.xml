@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".createEvent.PlaceType">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <Button
+            android:id="@+id/khiladiPlaces"
+            android:background="@drawable/email_password_corners"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:padding="@dimen/dp_20"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="From Khiladi places" />
+
+    <Button
+            android:id="@+id/fromMap"
+            android:layout_below="@id/khiladiPlaces"
+            android:background="@drawable/email_password_corners"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:padding="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose from map" />
+
+    </RelativeLayout>
+</RelativeLayout>
+</layout>
