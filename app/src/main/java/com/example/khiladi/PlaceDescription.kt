@@ -1,6 +1,8 @@
 package com.example.khiladi
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +18,11 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
+import java.net.URI
+import android.widget.Toast
+import android.content.ActivityNotFoundException
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class PlaceDescription : Fragment() {
@@ -35,7 +42,9 @@ class PlaceDescription : Fragment() {
             findNavController().navigate(R.id.action_placeDescription_to_khiladiProfile,bundle)
         }
         placeDescriptionBinding.mapPlaceDescription.setOnClickListener {
-            findNavController().navigate(R.id.action_placeDescription_to_customizeMyPlaces)
+            //findNavController().navigate(R.id.action_placeDescription_to_customizeMyPlaces)
+            val uri : Uri = Uri.parse("google.navigation:q=${selectedAd.latitude},${selectedAd.longitude}")
+            showMap(uri)
         }
         inflateUI()
         return placeDescriptionBinding.root
@@ -65,6 +74,20 @@ class PlaceDescription : Fragment() {
            }
        })
     }
+
+    fun showMap(geoLocation: Uri) {
+        val intent = Intent(Intent.ACTION_VIEW).apply {
+            data = geoLocation
+        }
+        if (intent.resolveActivity(context!!.packageManager) != null) {
+            startActivity(intent)
+        }
+       /* val navigationIntentUri = Uri.parse("google.navigation:q=$geoLocation" + 12f + "," + 2f)//creating intent with latlng
+        val mapIntent = Intent(Intent.ACTION_VIEW, navigationIntentUri)
+        mapIntent.setPackage("com.google.android.apps.maps")
+        startActivity(mapIntent)*/
+
+        }
 
 
 
