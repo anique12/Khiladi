@@ -3,6 +3,7 @@ package com.example.khiladi.fragments
 
 import com.example.khiladi.Adapters.CondenseKhiladiAdapter
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -51,11 +52,12 @@ class TeamProfile : Fragment(), CondenseKhiladiAdapter.ChoosePlayersCallBack,
     private var selectedKhiladi = Khiladi()
     private var firebaseDatabase = FirebaseDatabase.getInstance()
     private var currentUser = FirebaseAuth.getInstance().currentUser
+    private var team = Team()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentTeamProfileBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_team_profile,container,false)
         if(arguments?.getParcelable<Team>("team") != null){
-            val team = arguments?.getParcelable<Team>("team")
+            team = arguments?.getParcelable<Team>("team")!!
             loadDataIntoFirebase(team)
         }
         if(arguments?.getParcelable<Notification>("notification") != null){
@@ -64,6 +66,35 @@ class TeamProfile : Fragment(), CondenseKhiladiAdapter.ChoosePlayersCallBack,
             }
             getDataAndUpdateUI()
         }
+
+        fragmentTeamProfileBinding.teamChat.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putParcelable("team",team)
+            findNavController().navigate(R.id.action_teamProfile_to_chatLog2,bundle)
+        }
+
+        FirebaseDatabase.getInstance().getReference("categories/${team.category}/title").addValueEventListener(object :ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                val category = p0.value.toString()
+                firebaseDatabase.getReference("khiladi/${currentUser?.uid}/teams/$category/${team.id}").addValueEventListener(object : ValueEventListener{
+                    override fun onCancelled(p0: DatabaseError) {
+
+                    }
+
+                    override fun onDataChange(p0: DataSnapshot) {
+                        if(p0.exists()){
+                            fragmentTeamProfileBinding.teamChat.visibility = View.VISIBLE
+                        }
+                    }
+                })
+            }
+        })
+        Log.i("aniquesabir","khiladi/${currentUser?.uid}/teams/${team.category}/${team.id}")
+
 
         return fragmentTeamProfileBinding.root
     }

@@ -78,6 +78,8 @@ dependencies {
     implementation 'com.github.denzcoskun:ImageSlideshow:0.0.5'
     implementation 'io.github.ivanespitiac:imageslider:1.0.3'
     implementation 'com.alespero:expandable-cardview:0.8'
+    implementation  'com.fxn769:pix:1.5.2'
+
 
 
 }

@@ -2,10 +2,13 @@ package com.example.khiladi.fragments
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.khiladi.Models.Khiladi
 import com.example.khiladi.R
 import com.google.firebase.database.DataSnapshot
@@ -20,17 +23,25 @@ class KhiladiProfile : Fragment() {
 
     var firebaseDatabase = FirebaseDatabase.getInstance()
     private lateinit var thisView : View
+    private var khiladi = Khiladi()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         thisView = inflater.inflate(R.layout.fragment_khiladi_profile,container,false)
         if(arguments?.getParcelable<Khiladi>("khiladi") != null){
-            val khiladi = arguments?.getParcelable<Khiladi>("khiladi")
-            updateUI(khiladi!!)
+            khiladi = arguments?.getParcelable<Khiladi>("khiladi")!!
+            updateUI(khiladi)
         }
         if (arguments?.getString("khiladiId") != null){
             val khiladiId = arguments?.getString("khiladiId")
             getKhiladi(khiladiId!!)
         }
 
+        thisView.message.setOnClickListener {
+            val bundle = Bundle()
+            Log.d("chgecking Testing",khiladi.toString())
+            Toast.makeText(context,khiladi.name, Toast.LENGTH_SHORT).show()
+            bundle.putParcelable("khiladi",khiladi)
+            findNavController().navigate(R.id.action_khiladiProfile_to_chatLog,bundle)
+        }
 
         /*if(khiladi.fans?.size == null) fragmentKhiladiProfileBinding.fansAccountFragment.text = "0 fans"
         else fragmentKhiladiProfileBinding.fansAccountFragment.text = khiladi.fans?.size.toString()+" fans"*/
@@ -49,8 +60,8 @@ class KhiladiProfile : Fragment() {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                val khiladi = p0.getValue(Khiladi::class.java)
-                updateUI(khiladi!!)
+                khiladi = p0.getValue(Khiladi::class.java)!!
+                updateUI(khiladi)
             }
 
         })

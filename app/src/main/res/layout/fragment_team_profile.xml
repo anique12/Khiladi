@@ -65,13 +65,24 @@
             android:layout_below="@id/nameTeam"
             />
 
+    <TextView
+            android:id="@+id/teamChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dp_20"
+            android:visibility="invisible"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/descriptionTeam"
+            android:text="Team chat"/>
+
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewPlayersTeamProfile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/dp_10"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_below="@id/descriptionTeam"/>
+            android:layout_below="@id/teamChat"/>
             />
 </RelativeLayout>
 </layout>

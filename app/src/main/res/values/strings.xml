@@ -87,4 +87,6 @@
     <string name="accepted">Accepted</string>
     <string name="discover_khiladi">Discover Khiladi</string>
     <string name="title_activity_check">Map</string>
+    <string name="message">message</string>
+    <string name="enter_message">Enter message...</string>
 </resources>

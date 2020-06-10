@@ -36,12 +36,12 @@ class FeedViewHolder(inflater: LayoutInflater, parent: ViewGroup):
 
     fun bind(feed: Feed) {
 
-        description!!.text = feed.description
+       /* description!!.text = feed.description
         Picasso.get().load(feed.imageView).fit().into(imageView)
         Picasso.get().load(feed.profileImage).fit().into(profileImageView)
         Picasso.get().load(feed.currentUserProfileImage).fit().into(currentUserProfile)
         profileName!!.text = feed.profileName
-
+*/
     }
 
 }

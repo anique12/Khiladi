@@ -12,6 +12,7 @@
     <ImageView
             android:id="@+id/imageView"
             android:scaleType="centerCrop"
+            android:background="@drawable/textview_corners"
             android:layout_width="@dimen/dp_100"
             android:layout_height="@dimen/dp_100"
             app:layout_constraintStart_toStartOf="parent"

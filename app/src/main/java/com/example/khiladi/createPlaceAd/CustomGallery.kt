@@ -69,7 +69,7 @@ class CustomGallery : Fragment(){
     private fun showPicsInRecyclerView() {
         if(photos != null){
             customGalleryBinding.recyclerViewPics.layoutManager = GridLayoutManager(context,3)
-            customGalleryBinding.recyclerViewPics.adapter = ShowPicsAdapter(photos!!,this)
+            customGalleryBinding.recyclerViewPics.adapter = ShowPicsAdapter(photos!!)
         }
     }
 

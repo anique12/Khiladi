@@ -11,33 +11,54 @@ import androidx.databinding.DataBindingUtil
 import com.example.khiladi.Models.Feed
 import com.example.khiladi.databinding.FragmentFeedsBinding
 import android.os.Parcelable
+import androidx.navigation.fragment.findNavController
+import com.example.khiladi.Models.Khiladi
+import com.example.khiladi.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 
 
 class Feeds : Fragment() {
 
-    lateinit var feed :ArrayList<Feed>
+    lateinit var feedList :ArrayList<Feed>
     lateinit var binding: FragmentFeedsBinding
     var KEY =  "recycler_state"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, com.example.khiladi.R.layout.fragment_feeds,container,false)
 
-        feed = ArrayList()
+        feedList = ArrayList()
+
+        binding.profileImageView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("khiladiId",FirebaseAuth.getInstance().currentUser?.uid)
+            findNavController().navigate(R.id.action_feed_to_khiladiProfile,bundle)
+        }
+        binding.desc.setOnClickListener {
+            findNavController().navigate(R.id.action_feed_to_createPost)
+        }
+        Picasso.get().load(FirebaseAuth.getInstance().currentUser?.photoUrl).into(binding.profileImageView)
 
 
-        feed.add(Feed("https://picsum.photos/id/237/200/300","This is a dog","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5","anique","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5"))
-        feed.add(Feed("https://static01.nyt.com/newsgraphics/2016/12/22/trump-nuclear-tweet/a92addeafafef2a57f38430176608e414e351979/tweet.png","This is a dog","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5","anique","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5"))
-        feed.add(Feed("https://picsum.photos/id/237/200/300","This is a dog Combustor-The furnace consists of a 7.5 cm (2.95 in) diameter, 20.04 cm (79 in) long downward fired combustor. The furnace is made up of a steel frame containing a 13.5 cm (5.31 in) layer of insulation and refractory. Furnace is also consisting of 3 ports for air feeding or of flue gas sample collection are located at 60 cm [port 1), 103 cm [port 2) and 146 cm [port 3). The air is supplied with the help of air compressor into the burner. The air can be divided into three streams: primary air is introduced from top of the furnace with the fuel feed and the secondary 2, is introduced to the combustor via port 1 located at 60 cm from top, tertiary air can also be supplied from port 2 or from port 3. Both primary air and secondary air can be provided at different flow rate to assist fuel feeding to ensure the complete combustion. ","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5","anique","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5"))
-        feed.add(Feed("https://picsum.photos/id/237/200/300","This is a dog","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5","anique","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5"))
-        feed.add(Feed("https://picsum.photos/id/237/200/300","This is a dog","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5","anique","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5"))
-        feed.add(Feed("https://picsum.photos/id/237/200/300","This is a dog","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5","anique","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5"))
-        feed.add(Feed("https://picsum.photos/id/237/200/300","This is a dog","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5","anique","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5"))
-        feed.add(Feed("https://picsum.photos/id/237/200/300","This is a dog","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5","anique","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5"))
-        feed.add(Feed("https://picsum.photos/id/237/200/300","This is a dog","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5","anique","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5"))
-        feed.add(Feed("https://picsum.photos/id/237/200/300","This is a dog","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5","anique","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5"))
-        feed.add(Feed("https://picsum.photos/id/237/200/300","This is a dog","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5","anique","https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBpOFoYnHzWE0GFosYlYFF57SssQYGH2RiIUuBfaL43U0anJB5"))
 
-        binding.recyclerViewFeed.adapter = FeedAdapter(feed)
+        val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
+       FirebaseDatabase.getInstance().getReference("feeds/$currentUserId").addValueEventListener(object :ValueEventListener{
+           override fun onCancelled(p0: DatabaseError) {
+
+           }
+
+           override fun onDataChange(p0: DataSnapshot) {
+               p0.children.forEach {
+                   val feed =  it.getValue(Feed::class.java)
+                   feedList.add(feed!!)
+                   binding.recyclerViewFeed.adapter = FeedAdapter(feedList)
+               }
+           }
+       })
 
         return binding.root
     }

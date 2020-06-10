@@ -1,5 +1,9 @@
 package com.example.khiladi.Models
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-data class Feed(val imageView:String,val description:String,val profileImage:String,val profileName:String,val currentUserProfileImage:String) {
+@Parcelize
+data class Feed(var postList:ArrayList<Post>? = null,
+                var desc:String? = null,var catergory: SportsCatergory? =null):Parcelable {
 }

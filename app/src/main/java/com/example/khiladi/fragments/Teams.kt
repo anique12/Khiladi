@@ -153,9 +153,7 @@ class Teams : Fragment(), TeamAdapter.TeamListener ,
 
                             override fun onDataChange(p0: DataSnapshot) {
                                 val team = p0.getValue(Team::class.java)
-                                if(team?.captainId == currentUser?.uid){
-                                    myteams.add(p0.getValue(Team::class.java)!!)
-                                }
+                                myteams.add(team!!)
                                 teamView.recyclerViewTeams.adapter = TeamAdapter(myteams,this@Teams,null)
                             }
 

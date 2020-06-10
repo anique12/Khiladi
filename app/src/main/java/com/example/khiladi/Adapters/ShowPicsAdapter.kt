@@ -11,13 +11,14 @@ import com.example.khiladi.R
 import com.example.khiladi.Resgiter.IntrestedSports
 import com.example.khiladi.Resgiter.PlayingSports
 import com.example.khiladi.createPlaceAd.CustomGallery
+import com.example.khiladi.fragments.CreatePost
 import kotlinx.android.synthetic.main.fragment_playing_sports.*
 import kotlinx.android.synthetic.main.select_sports_category_single_layout.view.*
 import layout.SelectSportsCategoryViewHolder
 import layout.ShowPicsViewHolder
 
 
-class ShowPicsAdapter(var list : ArrayList<Uri>, var context : CustomGallery): RecyclerView.Adapter<ShowPicsViewHolder>(){
+class ShowPicsAdapter(var list : ArrayList<Uri>): RecyclerView.Adapter<ShowPicsViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShowPicsViewHolder {

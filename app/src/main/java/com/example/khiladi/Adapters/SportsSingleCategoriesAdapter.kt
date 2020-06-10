@@ -8,16 +8,13 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.khiladi.DialogChooseSingleSportsCategory
 import com.example.khiladi.Models.SportsCatergory
-import com.example.khiladi.fragments.CreateEvent
-import com.example.khiladi.fragments.DiscoverKhiladi
-import com.example.khiladi.fragments.Home
-import com.example.khiladi.fragments.Teams
+import com.example.khiladi.fragments.*
 import layout.SportsSingleCategoryViewHolder
 
 
 class SportsSingleCategoriesAdapter(val context:Context, var sportsCategory: List<SportsCatergory>,
                                     var discoverKhiladi: DiscoverKhiladi? = null,var teams : Teams? = null,
-                                    var dialog : DialogChooseSingleSportsCategory? = null,var doneButton: Button? = null): RecyclerView.Adapter<SportsSingleCategoryViewHolder>(){
+                                    var dialog : DialogChooseSingleSportsCategory? = null,var doneButton: Button? = null,var bottomSheetDialogChooseCategory: BottomSheetDialogChooseCategory? =null): RecyclerView.Adapter<SportsSingleCategoryViewHolder>(){
 
     private lateinit var listner : SportsSingleCategoryListener
     var list = ArrayList<SportsCatergory>()
@@ -32,6 +29,7 @@ class SportsSingleCategoriesAdapter(val context:Context, var sportsCategory: Lis
         if(discoverKhiladi != null) listner = discoverKhiladi!!
         else if(teams != null) listner = teams!!
         else if(dialog != null) listner = dialog?.targetFragment as SportsSingleCategoryListener
+        else if(bottomSheetDialogChooseCategory!=null) listner = bottomSheetDialogChooseCategory!!
         val inflater= LayoutInflater.from(parent.context)
         return SportsSingleCategoryViewHolder(inflater,parent)
     }

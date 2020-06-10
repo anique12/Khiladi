@@ -82,12 +82,7 @@ class PlaceDescription : Fragment() {
         if (intent.resolveActivity(context!!.packageManager) != null) {
             startActivity(intent)
         }
-       /* val navigationIntentUri = Uri.parse("google.navigation:q=$geoLocation" + 12f + "," + 2f)//creating intent with latlng
-        val mapIntent = Intent(Intent.ACTION_VIEW, navigationIntentUri)
-        mapIntent.setPackage("com.google.android.apps.maps")
-        startActivity(mapIntent)*/
-
-        }
+    }
 
 
 

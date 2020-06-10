@@ -28,12 +28,23 @@
             android:id="@+id/feed"
             android:name="com.example.khiladi.fragments.Feeds"
             android:label="fragment_feeds"
-            tools:layout="@layout/fragment_feeds" />
+            tools:layout="@layout/fragment_feeds" >
+        <action
+                android:id="@+id/action_feed_to_khiladiProfile"
+                app:destination="@id/khiladiProfile" />
+        <action
+                android:id="@+id/action_feed_to_createPost"
+                app:destination="@id/createPost" />
+    </fragment>
     <fragment
             android:id="@+id/chat"
             android:name="com.example.khiladi.fragments.Chat"
             android:label="fragment_chat"
-            tools:layout="@layout/fragment_chat" />
+            tools:layout="@layout/fragment_chat" >
+        <action
+                android:id="@+id/action_chat_to_chatLog"
+                app:destination="@id/chatLog" />
+    </fragment>
     <fragment
             android:id="@+id/ads"
             android:name="com.example.khiladi.fragments.Ads"
@@ -214,11 +225,18 @@
         <action
                 android:id="@+id/action_teamProfile_to_khiladiProfile"
                 app:destination="@id/khiladiProfile" />
+        <action
+                android:id="@+id/action_teamProfile_to_chatLog2"
+                app:destination="@id/chatLog" />
     </fragment>
     <fragment
             android:id="@+id/khiladiProfile"
             android:name="com.example.khiladi.fragments.KhiladiProfile"
-            android:label="KhiladiProfile" />
+            android:label="KhiladiProfile" >
+        <action
+                android:id="@+id/action_khiladiProfile_to_chatLog"
+                app:destination="@id/chatLog" />
+    </fragment>
     <fragment
             android:id="@+id/createEvent"
             android:name="com.example.khiladi.fragments.CreateEvent"
@@ -388,5 +406,21 @@
             android:id="@+id/schedule"
             android:name="com.example.khiladi.createEvent.Schedule"
             android:label="Schedule" />
+    <fragment
+            android:id="@+id/chatLog"
+            android:name="com.example.khiladi.chat.ChatLog"
+            android:label="ChatLog" >
+        <argument
+                android:name="khiladi"
+                app:argType="com.example.khiladi.Models.Khiladi" />
+    </fragment>
+    <fragment
+            android:id="@+id/createPost"
+            android:name="com.example.khiladi.fragments.CreatePost"
+            android:label="CreatePost" >
+        <action
+                android:id="@+id/action_createPost_to_feed"
+                app:destination="@id/feed" />
+    </fragment>
 
 </navigation>
