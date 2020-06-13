@@ -11,22 +11,21 @@ import androidx.databinding.DataBindingUtil
 import com.example.khiladi.Models.Feed
 import com.example.khiladi.databinding.FragmentFeedsBinding
 import android.os.Parcelable
+import android.util.Log
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.example.khiladi.Models.Khiladi
 import com.example.khiladi.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 
 
-class Feeds : Fragment() {
+class Feeds : Fragment(),FeedAdapter.CommentListener {
 
     lateinit var feedList :ArrayList<Feed>
     lateinit var binding: FragmentFeedsBinding
     var KEY =  "recycler_state"
+    var CHECK = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, com.example.khiladi.R.layout.fragment_feeds,container,false)
@@ -46,20 +45,41 @@ class Feeds : Fragment() {
 
 
         val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
-       FirebaseDatabase.getInstance().getReference("feeds/$currentUserId").addValueEventListener(object :ValueEventListener{
+       FirebaseDatabase.getInstance().getReference("feeds/$currentUserId").addChildEventListener(object : ChildEventListener{
            override fun onCancelled(p0: DatabaseError) {
 
            }
 
-           override fun onDataChange(p0: DataSnapshot) {
+           override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+           }
+
+           override fun onChildChanged(p0: DataSnapshot, p1: String?) {
+           }
+
+           override fun onChildAdded(p0: DataSnapshot, p1: String?) {
+               /*Toast.makeText(context,"onchildAdded",Toast.LENGTH_SHORT).show()
+               Log.d("onChildAdded","ondsmdna")*/
+               //binding.recyclerViewFeed.adapter = FeedAdapter(feedList,this@Feeds)
+               val feed =  p0.getValue(Feed::class.java)!!
+               feedList.add(feed)
+               val feedAdapter = FeedAdapter(feedList,this@Feeds)
+               binding.recyclerViewFeed.adapter = feedAdapter
+               feedAdapter.notifyItemInserted()
+
+           }
+
+           override fun onChildRemoved(p0: DataSnapshot) {
+           }
+
+          /* override fun onDataChange(p0: DataSnapshot) {
+               feedList.clear()
                p0.children.forEach {
                    val feed =  it.getValue(Feed::class.java)
                    feedList.add(feed!!)
-                   binding.recyclerViewFeed.adapter = FeedAdapter(feedList)
+                   binding.recyclerViewFeed.adapter = FeedAdapter(feedList,this@Feeds)
                }
-           }
+           }*/
        })
-
         return binding.root
     }
 
@@ -74,6 +94,12 @@ class Feeds : Fragment() {
             val state:Parcelable = savedInstanceState.getParcelable(KEY)!!
             binding.recyclerViewFeed.layoutManager!!.onRestoreInstanceState(state)
         }
+    }
+
+    override fun callback(feed: Feed) {
+        val bundle = Bundle()
+        bundle.putParcelable("feed",feed)
+        findNavController().navigate(R.id.action_feed_to_commentFragment,bundle)
     }
 
 

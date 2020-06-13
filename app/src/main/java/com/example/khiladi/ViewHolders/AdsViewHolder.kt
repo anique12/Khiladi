@@ -40,7 +40,7 @@ class AdsViewHolder(inflater: LayoutInflater, parent: ViewGroup):
         map = itemView.findViewById(R.id.map)
        // profileImageView = itemView.findViewById(R.id.profile_imageView_ads)
         title = itemView.findViewById(R.id.title)
-        currentUserProfile = itemView.findViewById(R.id.currenUserProfileImage)
+       // currentUserProfile = itemView.findViewById(R.id.currenUserProfileImage)
         currentUser =FirebaseAuth.getInstance().currentUser?.uid
         locality = itemView.findViewById(R.id.locality)
         sportsCatergory = itemView.findViewById(R.id.sportsCategory)

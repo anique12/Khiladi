@@ -35,6 +35,9 @@
         <action
                 android:id="@+id/action_feed_to_createPost"
                 app:destination="@id/createPost" />
+        <action
+                android:id="@+id/action_feed_to_commentFragment"
+                app:destination="@id/commentFragment" />
     </fragment>
     <fragment
             android:id="@+id/chat"
@@ -422,5 +425,9 @@
                 android:id="@+id/action_createPost_to_feed"
                 app:destination="@id/feed" />
     </fragment>
+    <fragment
+            android:id="@+id/commentFragment"
+            android:name="com.example.khiladi.fragments.CommentFragment"
+            android:label="CommentFragment" />
 
 </navigation>

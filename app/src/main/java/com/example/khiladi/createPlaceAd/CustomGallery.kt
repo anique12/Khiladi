@@ -85,10 +85,15 @@ class CustomGallery : Fragment(){
 
         if (requestCode == 101 && resultCode == Activity.RESULT_OK && data != null) {
             val clip = data.clipData
-            for (i in 0 until clip!!.itemCount) {
-                val item = clip.getItemAt(i)
-                val uri = item.uri
-                photos?.add(uri)
+            if(clip?.itemCount == null){
+                photos?.add(data.data!!)
+            }
+            else {
+                for (i in 0 until clip.itemCount) {
+                    val item = clip.getItemAt(i)
+                    val uri = item.uri
+                    photos?.add(uri)
+                }
             }
         }
         photos?.forEach {

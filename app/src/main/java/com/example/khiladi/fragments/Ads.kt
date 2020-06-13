@@ -24,14 +24,12 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.ViewHolder
 
 class Ads : Fragment() {
 
     lateinit var adsbinding : FragmentAdsBinding
     private var adsList = ArrayList<Ads2>()
     private lateinit var utils : Utils
-    lateinit var adapter: GroupAdapter<ViewHolder>
     private var currentUser = FirebaseAuth.getInstance().currentUser?.uid
     private var firebaseDatabase = FirebaseDatabase.getInstance()
 
