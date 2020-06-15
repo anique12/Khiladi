@@ -65,9 +65,18 @@
                 android:background="@drawable/horizontal_line"/>
     </LinearLayout>
 
+    <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_below="@id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
     <RelativeLayout
             android:id="@+id/descL"
-               android:layout_below="@id/navigation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -152,7 +161,7 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/navigation">
+            android:layout_below="@id/timings">
 
         <RelativeLayout
                 android:id="@+id/btnLayout"
@@ -186,6 +195,273 @@
 
     </RelativeLayout>
 
+    <LinearLayout
+            android:id="@+id/timings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_40"
+            android:background="@drawable/textview_corners"
+            android:backgroundTint="@color/blue_background"
+            android:layout_below="@id/descL"
+            android:orientation="vertical">
 
+        <LinearLayout
+                android:id="@+id/timingsL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp_16"
+                    android:layout_below="@id/toolBar"
+                    android:padding="@dimen/dp_10"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@android:color/black"
+                    android:text="Timings"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Monday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/mondayTiming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="Select"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Tuesday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/tuesdayTiming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="Select"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Wednesday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/wednesdayTiming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="Select"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Thursday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/thursdayTiming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="Select"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Friday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/fridayTiming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="Select"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Saturday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/saturdayTiming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="Select"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Sunday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/sundayTiming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_regular"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="Select"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/timeNegoL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:weightSum="1"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_below="@id/timingsL"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp_16"
+                    android:layout_weight="0.8"
+                    android:fontFamily="@font/lato_regular"
+                    android:textColor="@android:color/black"
+                    android:text="Do not recieve requests from other timings"/>
+
+            <Switch
+                    android:id="@+id/otherTimings"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:layout_height="wrap_content"
+                    android:gravity="end" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
 </layout>

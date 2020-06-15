@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.khiladi.Models.Ads2
 import com.example.khiladi.Models.Khiladi
-
 import com.example.khiladi.R
 import com.example.khiladi.databinding.FragmentCustomizeMyPlacesBinding
 import com.example.khiladi.databinding.FragmentNearbyPlacesBinding
@@ -85,8 +84,12 @@ class NearbyPlaces : Fragment(), AdsAdapter.PlaceListener {
         // Inflate the layout for this fragment
         nearbyPlacesBinding =  DataBindingUtil.inflate(inflater,R.layout.fragment_nearby_places, container, false)
         getCurrentUser()
-
-
+        nearbyPlacesBinding.skipButton.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("team",arguments?.getString("team").toString())
+            bundle.putString("sports",arguments?.getString("sports").toString())
+            findNavController().navigate(R.id.action_nearbyPlaces_to_schedule,bundle)
+        }
         return nearbyPlacesBinding.root
     }
 

@@ -60,6 +60,8 @@ class SelectCategory : Fragment(),SelectSportsCategoriesAdapter.SelectedSingleCa
     var photoString = ArrayList<String>()
     private lateinit var utils : Utils
     private var mapSnapshot = String()
+    private var timingList = ArrayList<String>()
+    private var otherTimings = false
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -113,7 +115,6 @@ class SelectCategory : Fragment(),SelectSportsCategoriesAdapter.SelectedSingleCa
     }
 
     private fun storeToFirebase() {
-
         val path = "ads/${selectedCategory?.title}/${country}/$city/${postalCode}/${currentUser}"
         val ref = firebaseDatabase.getReference(path)
         val key = ref.push().key
@@ -123,7 +124,8 @@ class SelectCategory : Fragment(),SelectSportsCategoriesAdapter.SelectedSingleCa
             val uid = UUID.randomUUID().toString()
             photosHashMap.put(uid,it)
         }
-        val ads = Ads2(key,currentUser,title,description,price,priceType,locality,latitude,longitude,photosHashMap,mapSnapshot,selectedCategory?.id,otherPath)
+        val ads = Ads2(key,currentUser,title,description,price,priceType,locality,latitude,longitude,photosHashMap,
+            mapSnapshot,selectedCategory?.id,otherPath,timingList,otherTimings)
         ref.child(key!!).setValue(ads).addOnSuccessListener {
             storeIdToKhiladi(otherPath)
         }.addOnFailureListener {
@@ -131,6 +133,7 @@ class SelectCategory : Fragment(),SelectSportsCategoriesAdapter.SelectedSingleCa
             utils.hideLoading()
         }
     }
+
 
     private fun storeIdToKhiladi(path : String) {
         val hashMap = HashMap<String,String>()
@@ -161,6 +164,8 @@ class SelectCategory : Fragment(),SelectSportsCategoriesAdapter.SelectedSingleCa
         postalCode = arguments?.getString("postalCode").toString()
         city = arguments?.getString("city").toString()
         mapSnapshot = arguments?.getString("map").toString()
+        timingList = arguments?.getStringArrayList("timings")!!
+        otherTimings = arguments?.getBoolean("otherTiming")!!
     }
 
 

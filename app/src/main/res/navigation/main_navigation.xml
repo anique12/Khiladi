@@ -22,7 +22,11 @@
                 app:destination="@id/createEvent" />
         <action
                 android:id="@+id/action_home_to_sportsAndTeam"
-                app:destination="@id/sportsAndTeam" />
+                app:destination="@id/sportsAndTeam"
+                app:enterAnim="@anim/slide_up"
+                app:exitAnim="@anim/stationary"
+                app:popEnterAnim="@anim/stationary"
+                app:popExitAnim="@anim/slide_down" />
     </fragment>
     <fragment
             android:id="@+id/feed"
@@ -361,6 +365,9 @@
         <action
                 android:id="@+id/action_placeDescription_to_customizeMyPlaces"
                 app:destination="@id/customizeMyPlaces" />
+        <action
+                android:id="@+id/action_placeDescription_to_editPlace"
+                app:destination="@id/editPlace" />
     </fragment>
     <fragment
             android:id="@+id/customizeMyPlaces"
@@ -408,7 +415,15 @@
     <fragment
             android:id="@+id/schedule"
             android:name="com.example.khiladi.createEvent.Schedule"
-            android:label="Schedule" />
+            android:label="Schedule" >
+        <action
+                android:id="@+id/action_schedule_to_home"
+                app:destination="@id/home"
+                app:enterAnim="@anim/slide_down"
+                app:exitAnim="@anim/stationary"
+                app:popEnterAnim="@anim/stationary"
+                app:popExitAnim="@anim/stationary" />
+    </fragment>
     <fragment
             android:id="@+id/chatLog"
             android:name="com.example.khiladi.chat.ChatLog"
@@ -429,5 +444,25 @@
             android:id="@+id/commentFragment"
             android:name="com.example.khiladi.fragments.CommentFragment"
             android:label="CommentFragment" />
+    <fragment
+            android:id="@+id/editPlace"
+            android:name="com.example.khiladi.fragments.EditPlace"
+            android:label="fragment_edit_place"
+            tools:layout="@layout/fragment_edit_place" >
+        <action
+                android:id="@+id/action_editPlace_to_editFragment"
+                app:destination="@id/editFragment" />
+        <action
+                android:id="@+id/action_editPlace_to_placeDescription"
+                app:destination="@id/placeDescription" />
+    </fragment>
+    <fragment
+            android:id="@+id/editFragment"
+            android:name="com.example.khiladi.fragments.EditFragment"
+            android:label="EditFragment" >
+        <action
+                android:id="@+id/action_editFragment_to_editPlace"
+                app:destination="@id/editPlace" />
+    </fragment>
 
 </navigation>

@@ -188,20 +188,20 @@
             android:layout_marginLeft="@dimen/dp_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <TextView
-                android:id="@+id/dateEvent"
-                android:layout_marginLeft="@dimen/dp_10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_italic"
-                android:text="21st jan,2020 /"/>
+
         <TextView
                 android:id="@+id/placeEvent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_italic"
+                android:fontFamily="@font/lato_black"
                 android:layout_marginLeft="10dp"
                 android:text="Griffen,Lahore"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   on"
+                android:fontFamily="@font/lato_italic"/>
 
         <TextView
                 android:id="@+id/timeEvent"
@@ -211,6 +211,15 @@
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/lato_italic"
                 android:gravity="end" />
+
+        <TextView
+
+                android:id="@+id/dateEvent"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_italic"
+                android:text="21st jan,2020 /"/>
     </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

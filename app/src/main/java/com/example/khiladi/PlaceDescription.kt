@@ -21,6 +21,7 @@ import com.squareup.picasso.Picasso
 import java.net.URI
 import android.widget.Toast
 import android.content.ActivityNotFoundException
+import com.google.firebase.auth.FirebaseAuth
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -35,6 +36,11 @@ class PlaceDescription : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         placeDescriptionBinding =  DataBindingUtil.inflate(inflater,R.layout.fragment_place_description, container, false)
         selectedAd = arguments?.getParcelable("selectedAd")!!
+        if(selectedAd.khiladiId != FirebaseAuth.getInstance().currentUser?.uid){
+            placeDescriptionBinding.edit.visibility = View.INVISIBLE
+        }else{
+            placeDescriptionBinding.bookPlace.visibility = View.INVISIBLE
+        }
         getData()
         placeDescriptionBinding.profilePlaceDescription.setOnClickListener {
             val bundle = Bundle()
@@ -45,6 +51,11 @@ class PlaceDescription : Fragment() {
             //findNavController().navigate(R.id.action_placeDescription_to_customizeMyPlaces)
             val uri : Uri = Uri.parse("google.navigation:q=${selectedAd.latitude},${selectedAd.longitude}")
             showMap(uri)
+        }
+        placeDescriptionBinding.edit.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putParcelable("place",selectedAd)
+            findNavController().navigate(R.id.action_placeDescription_to_editPlace,bundle)
         }
         inflateUI()
         return placeDescriptionBinding.root
@@ -60,6 +71,14 @@ class PlaceDescription : Fragment() {
         }
         placeDescriptionBinding.imagesliderPlaceDescription.setItems(list)
         Picasso.get().load(selectedAd.mapSnapshot).into(placeDescriptionBinding.mapPlaceDescription)
+        val oldTimingList = selectedAd.timings!!
+        placeDescriptionBinding.mondayTiming.text = oldTimingList[0]
+        placeDescriptionBinding.tuesdayTiming.text = oldTimingList[1]
+        placeDescriptionBinding.wednesdayTiming.text = oldTimingList[2]
+        placeDescriptionBinding.thursdayTiming.text = oldTimingList[3]
+        placeDescriptionBinding.fridayTiming.text = oldTimingList[4]
+        placeDescriptionBinding.saturdayTiming.text = oldTimingList[5]
+        placeDescriptionBinding.sundayTiming.text = oldTimingList[6]
     }
 
     private fun getData() {

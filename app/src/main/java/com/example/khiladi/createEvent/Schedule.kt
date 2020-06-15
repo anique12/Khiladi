@@ -4,23 +4,24 @@ package com.example.khiladi.createEvent
 import android.app.TimePickerDialog
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.khiladi.Models.Event
-
 import com.example.khiladi.R
 import com.example.khiladi.Utils
-import com.example.khiladi.databinding.FragmentScheduleBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import devs.mulham.horizontalcalendar.HorizontalCalendar
 import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener
-import kotlinx.android.synthetic.main.fragment_create_event.view.*
 import kotlinx.android.synthetic.main.fragment_schedule.view.*
 import java.util.*
+
 
 /**
  * A simple [Fragment] subclass.
@@ -35,6 +36,8 @@ class Schedule : Fragment() {
     private var timeNego = false
     private var placeNego = false
     private var urgent = false
+    private var place = String()
+    private var placeRef = String()
     private var firebaseDatabase = FirebaseDatabase.getInstance()
 
 
@@ -44,14 +47,36 @@ class Schedule : Fragment() {
 
         scheduleView.selectTime.setOnClickListener {
             val mcurrentTime = Calendar.getInstance()
-            val hour = mcurrentTime.get(Calendar.HOUR_OF_DAY)
+            var hourOfDay = mcurrentTime.get(Calendar.HOUR_OF_DAY)
             val minute = mcurrentTime.get(Calendar.MINUTE)
             val mTimePicker: TimePickerDialog
             mTimePicker = TimePickerDialog(context,
-                TimePickerDialog.OnTimeSetListener { timePicker, selectedHour, selectedMinute ->
-                    time = "$selectedHour:$selectedMinute"
-                    scheduleView.timeTextView.text = time
-                }, hour, minute, false)
+                TimePickerDialog.OnTimeSetListener { timePicker, mselectedHour, selectedMinute ->
+                    var selectedHour = mselectedHour
+                    var AM_PM = " AM"
+                    var mm_precede = ""
+                    if (selectedHour >= 12) {
+                        AM_PM = " PM"
+                        if (selectedHour in 13..23) {
+                            selectedHour -= 12
+                        } else {
+                            selectedHour = 12
+                        }
+                    } else if (selectedHour == 0) {
+                        selectedHour = 12
+                    }
+                    if (minute < 10) {
+                        mm_precede = "0"
+                    }
+                    place = arguments?.getString("place").toString()
+                    placeRef = arguments?.getString("placeRef").toString()
+                    checkPlaceAvailability()
+                    view?.timeTextView?.visibility = View.VISIBLE
+                    view?.post?.isEnabled = true
+                    time = "$selectedHour:$mm_precede$selectedMinute$AM_PM"
+                    view?.timeTextView?.text = time
+                }, hourOfDay, minute, false)
+
             mTimePicker.setTitle("Select Time")
             mTimePicker.show()
         }
@@ -80,7 +105,7 @@ class Schedule : Fragment() {
         horizontalCalendar.calendarListener = object : HorizontalCalendarListener() {
             override fun onDateSelected(date: Calendar, position: Int) {
                 datee = android.text.format.DateFormat.format("EEE, MMM d, yyyy", date).toString()
-                Toast.makeText(context, datee, Toast.LENGTH_SHORT).show()
+               // Toast.makeText(context, datee, Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -101,15 +126,14 @@ class Schedule : Fragment() {
         scheduleView.urgent.setOnCheckedChangeListener { _, p1 ->
             urgent = p1
         }
-        scheduleView.doneButton.setOnClickListener {
+        scheduleView.post.setOnClickListener {
+            findNavController().navigate(R.id.action_schedule_to_home)
             val utils = Utils(context!!)
             utils.showLoading()
-            val description = scheduleView.desc.text.toString()
+            val description = scheduleView.eventDesc.text.toString()
             val teamId = arguments?.getString("team").toString()
             val sports = arguments?.getString("sports").toString()
             val tsLong = System.currentTimeMillis()
-            val place = arguments?.getString("place").toString()
-            val placeRef = arguments?.getString("placeRef").toString()
             val ref = firebaseDatabase.getReference("events/$sports/$teamId").push()
             val id = ref.key
             val event = Event(id!!,teamId,null,tsLong.toString(),datee,time,urgent,null,sports,place,null,timeNego,dateNego,
@@ -124,6 +148,19 @@ class Schedule : Fragment() {
 
         }
         return scheduleView
+    }
+
+    private fun checkPlaceAvailability() {
+        FirebaseDatabase.getInstance().getReference("$placeRef/timings").addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+
+            }
+
+        })
     }
 
 

@@ -55,6 +55,7 @@ class EventViewHolder(inflater: LayoutInflater, parent: ViewGroup):
 
         if(event.fixture == true){
             statusEvent.text = "Fixture"
+            respond?.visibility = View.INVISIBLE
         }
         if (event.team2==null){
             FirebaseDatabase.getInstance().getReference("teams/${event.category}/${event.team1}").addValueEventListener(object : ValueEventListener{
@@ -118,7 +119,6 @@ class EventViewHolder(inflater: LayoutInflater, parent: ViewGroup):
                                     if (team2?.profile!="") Picasso.get().load(team2?.profile).fit().into(imageView2)
                                     dateTime?.text = event.date
                                     time?.text = event.time
-                                    respond?.visibility = View.INVISIBLE
                                 }
 
 
