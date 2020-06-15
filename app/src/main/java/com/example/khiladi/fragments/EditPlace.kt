@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.khiladi.Models.Ads2
+import com.example.khiladi.Models.Slot
 import com.example.khiladi.R
 import com.example.khiladi.databinding.FragmentEditPlaceBinding
 import com.google.firebase.database.DataSnapshot
@@ -25,7 +26,7 @@ class EditPlace : Fragment(),EditFragment.Editor,EditTimings.Callback {
     private lateinit var editPlaceBinding: FragmentEditPlaceBinding
     private var selectedPlace = Ads2()
     private var newTimingsList = ArrayList<String>()
-    private var oldTimingList = ArrayList<String>()
+    private var oldTimingList = ArrayList<ArrayList<Slot>>()
     private var otherTiming = false
 
     override fun onCreateView(
@@ -83,18 +84,21 @@ class EditPlace : Fragment(),EditFragment.Editor,EditTimings.Callback {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                oldTimingList.clear()
                 p0.children.forEach {
                     Log.d("oldValue",it.value.toString())
-                    oldTimingList.add(it.value.toString())
+                    val slotList = ArrayList<Slot>()
+                    it.children.forEach {
+                        slotList.add(it.getValue(Slot::class.java)!!)
+                    }
+                    oldTimingList.add(slotList)
                 }
-                editPlaceBinding.mondayTiming.text = oldTimingList[0]
-                editPlaceBinding.tuesdayTiming.text = oldTimingList[1]
-                editPlaceBinding.wednesdayTiming.text = oldTimingList[2]
-                editPlaceBinding.thursdayTiming.text = oldTimingList[3]
-                editPlaceBinding.fridayTiming.text = oldTimingList[4]
-                editPlaceBinding.saturdayTiming.text = oldTimingList[5]
-                editPlaceBinding.sundayTiming.text = oldTimingList[6]
+                editPlaceBinding.mondayTiming.text = oldTimingList[0][0].dayTime
+                editPlaceBinding.tuesdayTiming.text = oldTimingList[1][0].dayTime
+                editPlaceBinding.wednesdayTiming.text = oldTimingList[2][0].dayTime
+                editPlaceBinding.thursdayTiming.text = oldTimingList[3][0].dayTime
+                editPlaceBinding.fridayTiming.text = oldTimingList[4][0].dayTime
+                editPlaceBinding.saturdayTiming.text = oldTimingList[5][0].dayTime
+                editPlaceBinding.sundayTiming.text = oldTimingList[6][0].dayTime
             }
         })
     }
@@ -103,7 +107,7 @@ class EditPlace : Fragment(),EditFragment.Editor,EditTimings.Callback {
         val fragment = EditTimings()
         fragment.setTargetFragment(this,1)
         val bundle = Bundle()
-        bundle.putStringArrayList("oldTimings",oldTimingList)
+        bundle.putSerializable("oldTimings",oldTimingList)
         fragment.arguments = bundle
         fragment.show(fragmentManager!!, "")
     }

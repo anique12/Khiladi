@@ -72,13 +72,13 @@ class PlaceDescription : Fragment() {
         placeDescriptionBinding.imagesliderPlaceDescription.setItems(list)
         Picasso.get().load(selectedAd.mapSnapshot).into(placeDescriptionBinding.mapPlaceDescription)
         val oldTimingList = selectedAd.timings!!
-        placeDescriptionBinding.mondayTiming.text = oldTimingList[0]
-        placeDescriptionBinding.tuesdayTiming.text = oldTimingList[1]
-        placeDescriptionBinding.wednesdayTiming.text = oldTimingList[2]
-        placeDescriptionBinding.thursdayTiming.text = oldTimingList[3]
-        placeDescriptionBinding.fridayTiming.text = oldTimingList[4]
-        placeDescriptionBinding.saturdayTiming.text = oldTimingList[5]
-        placeDescriptionBinding.sundayTiming.text = oldTimingList[6]
+        placeDescriptionBinding.mondayTiming.text = oldTimingList[0][0].dayTime
+        placeDescriptionBinding.tuesdayTiming.text = oldTimingList[1][0].dayTime
+        placeDescriptionBinding.wednesdayTiming.text = oldTimingList[2][0].dayTime
+        placeDescriptionBinding.thursdayTiming.text = oldTimingList[3][0].dayTime
+        placeDescriptionBinding.fridayTiming.text = oldTimingList[4][0].dayTime
+        placeDescriptionBinding.saturdayTiming.text = oldTimingList[5][0].dayTime
+        placeDescriptionBinding.sundayTiming.text = oldTimingList[6][0].dayTime
     }
 
     private fun getData() {

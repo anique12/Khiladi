@@ -17,6 +17,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.khiladi.Models.Ads2
+import com.example.khiladi.Models.Slot
 import com.example.khiladi.Models.SportsCatergory
 
 import com.example.khiladi.R
@@ -31,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
+import java.io.Serializable
 import java.net.URI
 import java.util.*
 import kotlin.collections.ArrayList
@@ -62,6 +64,8 @@ class SelectCategory : Fragment(),SelectSportsCategoriesAdapter.SelectedSingleCa
     private var mapSnapshot = String()
     private var timingList = ArrayList<String>()
     private var otherTimings = false
+    private var fullList = ArrayList<ArrayList<Slot>>()
+
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -125,7 +129,7 @@ class SelectCategory : Fragment(),SelectSportsCategoriesAdapter.SelectedSingleCa
             photosHashMap.put(uid,it)
         }
         val ads = Ads2(key,currentUser,title,description,price,priceType,locality,latitude,longitude,photosHashMap,
-            mapSnapshot,selectedCategory?.id,otherPath,timingList,otherTimings)
+            mapSnapshot,selectedCategory?.id,otherPath,fullList,otherTimings)
         ref.child(key!!).setValue(ads).addOnSuccessListener {
             storeIdToKhiladi(otherPath)
         }.addOnFailureListener {
@@ -166,9 +170,44 @@ class SelectCategory : Fragment(),SelectSportsCategoriesAdapter.SelectedSingleCa
         mapSnapshot = arguments?.getString("map").toString()
         timingList = arguments?.getStringArrayList("timings")!!
         otherTimings = arguments?.getBoolean("otherTiming")!!
+        timingList.forEach {
+            val timeList = it.split("-")
+            val startTime = getTimeIn24( timeList[0])
+            val endTime = getTimeIn24( timeList[1])
+            divideTimeInSlots(startTime, endTime,it)
+        }
     }
 
 
+    private fun divideTimeInSlots(startTime:Int,endTime:Int,t:String) {
+        val slotList = ArrayList<Slot>()
+        Toast.makeText(context,"dividing slots",Toast.LENGTH_SHORT).show()
+        val slots = endTime - startTime
+        Log.d("maslyYr",slots.toString())
+        var time = startTime
+        for(i in 0 until slots){
+            val string : String = time.toString().plus(" - ").plus(time+1)
+            slotList.add(Slot(string,false,t))
+            time++
+        }
+        fullList.add(slotList)
+    }
+
+    private fun getTimeIn24(time : String): Int {
+
+        return if(time.contains("PM")){
+            val list = time.split(":")
+            val newString = list[0].replace("\\s".toRegex(),"")
+            val newint= newString.toInt()
+            newint + 12
+        } else {
+            val list = time.split(":")
+            val newString = list[0].replace("\\s".toRegex(),"")
+            val newint= newString.toInt()
+            newint
+        }
+
+    }
 
     private fun inflateSports() {
         selectedCategoryBinding.recyclerViewCategories.layoutManager = GridLayoutManager(context,3)

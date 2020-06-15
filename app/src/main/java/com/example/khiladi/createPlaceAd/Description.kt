@@ -3,6 +3,7 @@ package com.example.khiladi.createPlaceAd
 
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
+import com.example.khiladi.Models.Slot
 import com.example.khiladi.Models.SportsCatergory
 import com.example.khiladi.R
 import com.example.khiladi.Utils
@@ -43,7 +45,7 @@ class Description : Fragment(),AdapterView.OnItemSelectedListener{
     private var saturdayEndTiming = String()
     private var sundayStartTiming = String()
     private var sundayEndTiming = String()
-    private var list : ArrayList<String>? = null
+    private var list = ArrayList<String>()
     private var otherTiming = false
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         descriptionBinding =  DataBindingUtil.inflate(inflater,R.layout.fragment_description, container, false)
@@ -205,16 +207,18 @@ class Description : Fragment(),AdapterView.OnItemSelectedListener{
 
     }
 
+
+
     private fun navigateToCategory() {
-        list = ArrayList()
         Toast.makeText(context,"Updating",Toast.LENGTH_SHORT).show()
-        list?.add(mondayStartTiming.plus(" - ").plus(mondayEndTiming))
-        list?.add(tuesdayStartTiming.plus(" - ").plus(tuesdayEndTiming))
-        list?.add(wednesdayStartTiming.plus(" - ").plus(wednesdayEndTiming))
-        list?.add(thursdayStartTiming.plus(" - ").plus(thursdayEndTiming))
-        list?.add(fridayStartTiming.plus(" - ").plus(fridayEndTiming))
-        list?.add(saturdayStartTiming.plus(" - ").plus(saturdayEndTiming))
-        list?.add(sundayStartTiming.plus(" - ").plus(sundayEndTiming))
+        list.add(mondayStartTiming.plus(" - ").plus(mondayEndTiming))
+        list.add(tuesdayStartTiming.plus(" - ").plus(tuesdayEndTiming))
+        list.add(wednesdayStartTiming.plus(" - ").plus(wednesdayEndTiming))
+        list.add(thursdayStartTiming.plus(" - ").plus(thursdayEndTiming))
+        list.add(fridayStartTiming.plus(" - ").plus(fridayEndTiming))
+        list.add(saturdayStartTiming.plus(" - ").plus(saturdayEndTiming))
+        list.add(sundayStartTiming.plus(" - ").plus(sundayEndTiming))
+
         val bundle = Bundle()
         bundle.putString("locality",arguments?.getString("locality").toString())
         bundle.putString("country",arguments?.getString("country").toString())
