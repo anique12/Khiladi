@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/cardview_light_background"
+        android:layout_height="wrap_content"
+        tools:ignore="PrivateResource">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_imageView"
+                android:layout_marginStart="@dimen/dp_8"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginBottom="@dimen/dp_4"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"/>
+
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:layout_marginStart="@dimen/dp_10"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="Anique"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:gravity="top"
+                    android:layout_gravity="top"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_16" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <TextView
+                        android:id="@+id/timeStamp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_lightitalic"
+                        android:text="3 hours ago"
+                        android:layout_marginBottom="@dimen/dp_4"
+                        android:layout_gravity="bottom"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_12" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/category"
+                        android:layout_width="@dimen/dp_15"
+                        android:layout_height="@dimen/dp_15"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp_5" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <ImageView
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:src="@drawable/more_vertical"
+                android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+            android:id="@+id/description_feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:textSize="@dimen/sp_16"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:textColor="@color/black"
+            android:fontFamily="@font/lato_regular"
+            android:minLines="0"/>
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPost"
+            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_height="wrap_content"/>
+
+    </androidx.core.widget.NestedScrollView>
+        <TextView
+                android:id="@+id/likes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:layout_marginTop="@dimen/dp_4"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:padding="@dimen/dp_5"
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:fontFamily="@font/lato_regular" />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="0.001dp"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_marginRight="@dimen/dp_8"
+            android:background="@android:color/darker_gray"
+            />
+    <LinearLayout
+            android:weightSum="3"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:id="@+id/like"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/dp_10"
+                android:background="?attr/selectableItemBackground"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/like"/>
+
+        <ImageView
+                android:id="@+id/comment"
+                android:layout_width="0dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/dp_10"
+                android:src="@drawable/comment"/>
+
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/dp_10"
+                android:src="@drawable/ic_baseline_share_24"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

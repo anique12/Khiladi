@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.CommentFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="66dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@android:color/black"
+            android:layout_alignTop="@id/commentSection"/>
+    <LinearLayout
+            android:id="@+id/commentSection"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dp_5"
+            android:padding="@dimen/dp_5"
+            android:layout_marginTop="@dimen/dp_5"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+        <EditText
+                android:id="@+id/comment"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_weight="0.85"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:backgroundTint="@color/blue_background"
+                android:paddingLeft="@dimen/dp_10"
+                android:background="@drawable/textview_corners"
+                android:hint="@string/write_a_comment"/>
+
+        <ImageView
+                android:id="@+id/send"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:background="@drawable/textview_corners"
+                android:backgroundTint="@color/blue_background"
+                android:src="@drawable/send_simple"
+                android:padding="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_5"
+                android:layout_weight="0.15"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
+</layout>

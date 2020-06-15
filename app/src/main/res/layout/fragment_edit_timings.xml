@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.EditTimings">
+
+    <LinearLayout
+            android:id="@+id/timings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:orientation="vertical">
+
+        <LinearLayout
+                android:id="@+id/timingsL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/monday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/sp_12"
+                    android:text="Monday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/mondayText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="10am - 12pm"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/tuesday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/sp_12"
+                    android:text="Tuesday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/tuesdayText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/wednesday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/sp_12"
+                    android:text="Wednesday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/wednesdayText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/thursday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/sp_12"
+                    android:text="Thursday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/thursdayText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/friday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/sp_12"
+                    android:text="Friday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/fridayText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/saturday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/sp_12"
+                    android:text="Saturday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/saturdayText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/sunday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/sp_12"
+                    android:text="Sunday"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+            <TextView
+                    android:id="@+id/sundayText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolBar"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:fontFamily="@font/lato_light"
+                    android:padding="@dimen/dp_10"
+                    android:gravity="end"
+                    android:text="text"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:background="@drawable/comment_corners"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:padding="@dimen/dp_15"
+                android:layout_gravity="end"
+                android:gravity="end"
+                android:layout_marginTop="@dimen/dp_30"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:layout_marginLeft="@dimen/dp_60"
+                android:layout_below="@id/sunday"/>
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+</layout>
