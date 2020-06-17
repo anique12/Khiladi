@@ -44,32 +44,26 @@ class Feeds : Fragment(),FeedAdapter.CommentListener {
 
 
 
-        val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
-       FirebaseDatabase.getInstance().getReference("feeds/$currentUserId").addChildEventListener(object : ChildEventListener{
+       FirebaseDatabase.getInstance().getReference("feeds").addValueEventListener(object : ValueEventListener{
            override fun onCancelled(p0: DatabaseError) {
 
            }
 
-           override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-           }
 
-           override fun onChildChanged(p0: DataSnapshot, p1: String?) {
-           }
+           override fun onDataChange(p0: DataSnapshot){
+               feedList.clear()
+               p0.children.forEach {
+                   it.children.forEach {
+                       val feed =  it.getValue(Feed::class.java)!!
+                       feedList.add(feed)
+                       val feedAdapter = FeedAdapter(feedList,this@Feeds)
+                       binding.recyclerViewFeed.adapter = feedAdapter
+                   }
+               }
 
-           override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-               /*Toast.makeText(context,"onchildAdded",Toast.LENGTH_SHORT).show()
-               Log.d("onChildAdded","ondsmdna")*/
-               //binding.recyclerViewFeed.adapter = FeedAdapter(feedList,this@Feeds)
-               val feed =  p0.getValue(Feed::class.java)!!
-               feedList.add(feed)
-               val feedAdapter = FeedAdapter(feedList,this@Feeds)
-               binding.recyclerViewFeed.adapter = feedAdapter
-               feedAdapter.notifyItemInserted()
 
            }
 
-           override fun onChildRemoved(p0: DataSnapshot) {
-           }
 
           /* override fun onDataChange(p0: DataSnapshot) {
                feedList.clear()

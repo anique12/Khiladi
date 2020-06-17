@@ -55,8 +55,13 @@ class Places : Fragment(),AdsAdapter.PlaceListener {
                                it.children.forEach {
                                    it.children.forEach {
                                        it.children.forEach {
-                                           val ads = it.getValue(Ads2::class.java)
-                                           list.add(ads!!)
+                                           if(it.exists()){
+                                               val ads = it.getValue(Ads2::class.java)
+                                               list.add(ads!!)
+                                           }
+
+
+
                                        }
                                    }
                                }

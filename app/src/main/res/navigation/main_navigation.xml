@@ -368,6 +368,9 @@
         <action
                 android:id="@+id/action_placeDescription_to_editPlace"
                 app:destination="@id/editPlace" />
+        <action
+                android:id="@+id/action_placeDescription_to_bookPlace2"
+                app:destination="@id/bookPlace2" />
     </fragment>
     <fragment
             android:id="@+id/customizeMyPlaces"
@@ -464,5 +467,9 @@
                 android:id="@+id/action_editFragment_to_editPlace"
                 app:destination="@id/editPlace" />
     </fragment>
+    <fragment
+            android:id="@+id/bookPlace2"
+            android:name="com.example.khiladi.fragments.BookPlace"
+            android:label="BookPlace" />
 
 </navigation>

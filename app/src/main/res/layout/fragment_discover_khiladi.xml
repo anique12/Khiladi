@@ -14,8 +14,10 @@
 
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolBar"
-                app:navigationIcon="@drawable/arrow_back"
                 app:title="@string/discover_khiladi"
+                app:titleTextColor="@android:color/white"
+                android:background="@color/colorPrimary"
+                android:elevation="@dimen/dp_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -25,6 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/toolBar"
+                android:layout_marginBottom="40dp"
                 android:background="@color/blue_background"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 

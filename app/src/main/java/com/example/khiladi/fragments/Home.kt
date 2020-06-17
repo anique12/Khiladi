@@ -104,7 +104,7 @@ class Home : Fragment(), EventAdapter.ResponceListener,SportsSingleCategoriesAda
                                     false,
                                     false,"${respondedEvent.team1}/${respondedEvent.id}"
                                 )
-                               firebaseDatabase.getReference("notification/$currentUser/$key").setValue(notification).addOnSuccessListener {
+                               firebaseDatabase.getReference("notification/$senderCaptainId/$key").setValue(notification).addOnSuccessListener {
                                     Toast.makeText(context,"Responce send",Toast.LENGTH_SHORT).show()
                                 }.addOnFailureListener {
                                     Toast.makeText(context,it.toString(),Toast.LENGTH_SHORT).show()

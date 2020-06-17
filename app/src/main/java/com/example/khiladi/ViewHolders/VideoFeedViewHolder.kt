@@ -22,7 +22,7 @@ class VideoFeedViewHolder(inflater: LayoutInflater, parent: ViewGroup):
 
     private var player: SimpleExoPlayer? = null
     private var playerView: PlayerView? = null
-    private var playWhenReady = true
+    private var playWhenReady = false
     private var currentWindow = 0
     private var playbackPosition: Long = 0
     private var mediaSource : MediaSource? = null

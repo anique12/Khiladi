@@ -14,7 +14,6 @@ import com.example.khiladi.Models.Khiladi
 import com.example.khiladi.Models.SportsCatergory
 import com.example.khiladi.R
 import com.example.khiladi.TimeAgo
-import com.example.khiladi.databinding.FragmentFeedsBinding
 import com.example.khiladi.fragments.Feeds
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot

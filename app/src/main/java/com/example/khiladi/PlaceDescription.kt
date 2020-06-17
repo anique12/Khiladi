@@ -1,6 +1,7 @@
 package com.example.khiladi
 
 
+import WeekDaysAdapter
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -21,10 +22,11 @@ import com.squareup.picasso.Picasso
 import java.net.URI
 import android.widget.Toast
 import android.content.ActivityNotFoundException
+import com.example.khiladi.Models.Slot
 import com.google.firebase.auth.FirebaseAuth
+import com.google.gson.Gson
 import java.util.*
 import kotlin.collections.ArrayList
-
 
 class PlaceDescription : Fragment() {
 
@@ -69,16 +71,24 @@ class PlaceDescription : Fragment() {
         selectedAd.images?.values?.forEach {
             list.add(it)
         }
+        placeDescriptionBinding.bookPlace.setOnClickListener {
+            val gson = Gson()
+            val jsonList = gson.toJson(selectedAd.timings)
+            val bundle =  Bundle()
+            bundle.putString("timingList",jsonList)
+            findNavController().navigate(R.id.action_placeDescription_to_bookPlace2,bundle)
+        }
         placeDescriptionBinding.imagesliderPlaceDescription.setItems(list)
         Picasso.get().load(selectedAd.mapSnapshot).into(placeDescriptionBinding.mapPlaceDescription)
         val oldTimingList = selectedAd.timings!!
-        placeDescriptionBinding.mondayTiming.text = oldTimingList[0][0].dayTime
+       /* placeDescriptionBinding.mondayTiming.text = oldTimingList[0][0].dayTime
         placeDescriptionBinding.tuesdayTiming.text = oldTimingList[1][0].dayTime
         placeDescriptionBinding.wednesdayTiming.text = oldTimingList[2][0].dayTime
         placeDescriptionBinding.thursdayTiming.text = oldTimingList[3][0].dayTime
         placeDescriptionBinding.fridayTiming.text = oldTimingList[4][0].dayTime
         placeDescriptionBinding.saturdayTiming.text = oldTimingList[5][0].dayTime
-        placeDescriptionBinding.sundayTiming.text = oldTimingList[6][0].dayTime
+        placeDescriptionBinding.sundayTiming.text = oldTimingList[6][0].dayTime*/
+        placeDescriptionBinding.recyclerView.adapter = WeekDaysAdapter(oldTimingList,this)
     }
 
     private fun getData() {

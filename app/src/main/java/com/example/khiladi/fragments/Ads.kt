@@ -83,7 +83,7 @@ class MyPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> BookPlace()
+            0 -> Rent()
             1 -> Rent()
             else -> {
                 return Purchase()

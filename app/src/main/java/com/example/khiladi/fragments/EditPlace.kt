@@ -107,7 +107,11 @@ class EditPlace : Fragment(),EditFragment.Editor,EditTimings.Callback {
         val fragment = EditTimings()
         fragment.setTargetFragment(this,1)
         val bundle = Bundle()
-        bundle.putSerializable("oldTimings",oldTimingList)
+        val list = ArrayList<String>()
+        oldTimingList.forEach {
+            list.add(it[0].dayTime!!)
+        }
+        bundle.putSerializable("oldTimings",list)
         fragment.arguments = bundle
         fragment.show(fragmentManager!!, "")
     }

@@ -181,18 +181,36 @@ class SelectCategory : Fragment(),SelectSportsCategoriesAdapter.SelectedSingleCa
 
     private fun divideTimeInSlots(startTime:Int,endTime:Int,t:String) {
         val slotList = ArrayList<Slot>()
-        Toast.makeText(context,"dividing slots",Toast.LENGTH_SHORT).show()
         val slots = endTime - startTime
         Log.d("maslyYr",slots.toString())
         var time = startTime
         for(i in 0 until slots){
-            val string : String = time.toString().plus(" - ").plus(time+1)
+            val string : String = getTimeIn12(time).plus(" - ").plus(getTimeIn12(time+1))
             slotList.add(Slot(string,false,t))
             time++
         }
         fullList.add(slotList)
     }
 
+    private fun getTimeIn12(hour:Int):String{
+        var selectedHour = hour
+        var selectedHourString = String()
+        if(selectedHour in 1..11){
+            selectedHourString = selectedHour.toString().plus(":00 AM")
+        }
+        else if(selectedHour == 12){
+            selectedHourString = selectedHour.toString().plus(":00 PM")
+        }
+        else if(selectedHour in 13..23){
+            val newHour = selectedHour - 12
+            selectedHourString = newHour.toString().plus(":00 PM")
+        }
+        else if(selectedHour == 24){
+            selectedHourString = "12:00 AM"
+        }
+        Log.d("newMaly",selectedHourString)
+        return selectedHourString
+    }
     private fun getTimeIn24(time : String): Int {
 
         return if(time.contains("PM")){

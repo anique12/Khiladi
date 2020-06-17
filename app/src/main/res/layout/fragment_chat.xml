@@ -7,17 +7,12 @@
             tools:context=".fragments.Chat">
 
         <androidx.appcompat.widget.Toolbar
+                android:background="@color/colorPrimary"
                 android:id="@+id/toolBar"
+                app:title="Chat"
+                app:titleTextColor="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Chats"
-                    android:textColor="@color/textColor"
-                    android:fontFamily="@font/lato_regular"
-                    android:textSize="20sp"/>
 
         </androidx.appcompat.widget.Toolbar>
 
