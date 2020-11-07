@@ -20,6 +20,7 @@ class AdsAdapter(
     var places: Places? = null,
     var ads: ArrayList<Ads2>, var nearbyPlaces : NearbyPlaces? = null
     ,var myAds: MyAds? = null): RecyclerView.Adapter<AdsViewHolder>(){
+
     private lateinit var toLeft: AnimationDrawable
     private lateinit var toRight: AnimationDrawable
 

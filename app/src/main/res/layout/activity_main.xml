@@ -17,7 +17,6 @@
                     app:labelVisibilityMode="unlabeled"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:defaultFocusHighlightEnabled="false"
                     android:background="?android:attr/windowBackground"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

@@ -75,7 +75,8 @@
             android:text="Select location"
             android:textSize="18dp" />
 
-    <fragment android:id="@+id/autocomplete_fragment"
+    <fragment
+            android:id="@+id/autocomplete_fragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.7"
